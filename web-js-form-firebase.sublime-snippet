@@ -1,0 +1,77 @@
+<snippet>
+	<content><![CDATA[
+// !! Place this above your main.js script in your html!! 
+//  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+// Ensure name and ids are defined for all inputs
+
+// Initialize Firebase (ADD YOUR OWN DATA)
+var config = {
+  apiKey: "xxxxx",
+  authDomain: "xxxxx",
+  databaseURL: "xxxxx",
+  projectId: "xxxxx",
+  storageBucket: "xxxxx",
+  messagingSenderId: "xxxxx"
+};
+firebase.initializeApp(config);
+
+// Reference messages collection
+var messagesRef = firebase.database().ref('messages');
+
+// Listen for form submit
+// Make sure form has id="contactForm"
+document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+// Submit form
+function submitForm(e){
+  e.preventDefault();
+
+  // Get values
+  var name = getInputVal('name');
+  var company = getInputVal('company');
+  var email = getInputVal('email');
+  var phone = getInputVal('phone');
+  var eduLevel = getMultiInputVal('eduLevel');
+
+  // Save message
+  saveMessage(name, company, email, phone, eduLevel);
+
+  // Show alert
+  document.querySelector('.alert').style.display = 'block';
+
+  // Hide alert after 3 seconds
+  setTimeout(function(){
+    document.querySelector('.alert').style.display = 'none';
+  },3000);
+
+  // Clear form
+  document.getElementById('contactForm').reset();
+}
+
+// Function to get get form values
+function getInputVal(id){
+  return document.getElementById(id).value;
+}
+
+// Function to get get form values from multiple select radio buttons
+function getMultiInputVal(name){
+  return document.querySelector('input[name="eduLevel"]:checked').value;
+}
+
+// Save message to firebase
+function saveMessage(name, company, email, phone, eduLevel){
+  var newMessageRef = messagesRef.push();
+  newMessageRef.set({
+    name: name,
+    company:company,
+    email:email,
+    phone:phone,
+    eduLevel:eduLevel
+  });
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>js-form-firebase</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.js</scope> 
+</snippet>

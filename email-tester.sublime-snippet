@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+         <style type="text/css">
+ /*  TESTING  */
+        table tr td {background-color:yellow !important;}
+        table tr td table tr td {background-color:pink !important;}
+        table tr td table tr td table tr td {background-color:orange !important;}
+        table tr td table tr td table tr td table tr td {background-color:green !important;}
+        table tr td table tr td table tr td table tr td table tr td {background-color:cyan !important;}
+        table tr td table tr td table tr td table tr td table tr td table tr td{background-color:yellow !important;}
+  </style>
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>em-tester</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!-- 	 <scope>text.html</scope> 
+ -->     <description>html|email|highlight_cells</description>
+</snippet>

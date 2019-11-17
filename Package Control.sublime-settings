@@ -1,0 +1,33 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Angular CLI",
+		"Autoprefixer",
+		"Bootstrap 3 Autocomplete",
+		"Bootstrap 3 Snippets",
+		"Color Highlight",
+		"CSS3",
+		"CSScomb",
+		"CSSOrder",
+		"DocBlockr",
+		"Emmet",
+		"Gist",
+		"HTML Boilerplate",
+		"HTML5",
+		"JSHint",
+		"Ngx HTML",
+		"Package Control",
+		"PackageResourceViewer",
+		"SCSS",
+		"SublimeLinter",
+		"SublimeLinter-html-tidy",
+		"SublimeLinter-jshint",
+		"SublimeLinter-tslint",
+		"TypeScript"
+	]
+}

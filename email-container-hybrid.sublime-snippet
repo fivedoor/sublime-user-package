@@ -1,0 +1,33 @@
+<snippet>
+	<content><![CDATA[
+	 <!-- hybrid container-open -->
+      <table class="wrapper" width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#${2:bgColor}" style="background-color: #${2:bgColor} !important;width: 100%;">
+            <tr>
+                <td width="100%" valign="top" bgcolor="#${2:bgColor}" style="width:100%">
+                 <!--[if (gte mso 9)|(IE)]>
+                 <table width="${1:emailWidth}" align="center" border="0" cellspacing="0" cellpadding="0" style="width: ${1:emailWidth}px">
+                 <tr>
+                 <td>
+                 <![endif]-->
+                     <table class="main-table" align="center" bgcolor="#ffffff" style="Margin: 0 auto; background-color: #ffffff; border-spacing: 0; color: #000000; font-family: sans-serif; max-width: ${1:emailWidth}px; width: 100%;">
+                     <!-- / hybrid container-open -->
+
+
+   					 <!-- hybrid container-close -->
+                     </table>
+                 <!--[if (gte mso 9)|(IE)]>
+                 </td>
+                 </tr>
+                 </table>
+                 <![endif]-->
+            </td>
+        </tr>
+    </table>
+    <!--/ hybrid container-close -->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>em-container-hybrid</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>text.html</scope> 
+     <description>html|email|container_hybrid</description>
+</snippet>

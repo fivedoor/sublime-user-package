@@ -1,0 +1,76 @@
+<snippet>
+	<content><![CDATA[
+
+<!-- 
+  ========================== Dimensions ==========================
+
+  VARIABLES
+  =========
+  ${1:content-width}
+  ${2:content-pad}
+  #${3:contentbgColor}
+  ${4:imageWidth}
+
+  Example:
+  ========
+  content-width: 580
+  cellpad: 26 | 4.48275862069%
+  full width image: 528 
+
+  ========================== /Dimensions ==========================
+-->
+
+<!-- Single Column  -->
+        <table class="content-width" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px;">
+          <tr>
+            <td class="content-pad hero" valign="top" bgcolor="#f7f7f7" align="center" style="background-color: #f7f7f7;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+              <!-- Full width image -->
+              <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
+                <tr>
+                  <td align="center" height="100%" valign="top" width="100%" style="padding: 0;width:100%" bgcolor="#f7f7f7">
+                    <img class="nomob" src="https://s3.amazonaws.com/com.harrys.production.email-assets-cdn/email/one-off/20190904_pre_shave/A+GROWN+MAN%E2%80%99S+GUIDE.png" alt="#######" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;">
+                    <!--[if !mso]><!--> <img class="showmob" src="https://s3.amazonaws.com/com.harrys.production.email-assets-cdn/email/one-off/20190904_pre_shave/A+GROWN+MAN%E2%80%99S+GUIDE-mobile.png" alt="#######" width="100%" height="auto" style="border: 0; display: none; height: none; line-height: 100%; max-width: 528px; max-height: 0; font-size: 0; outline: none; text-decoration: none; width: 100%;">  <!--<![endif]--> 
+                  </td>
+                </tr>
+              </table>
+              <!--/ Full width image -->
+              <!-- Text Block-->
+              <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
+                <tr>
+                  <td class="h2" align="left" bgcolor="#f7f7f7" valign="top" style="letter-spacing: 0.56px;-webkit-text-size-adjust: none;color: #263645;font-family: Futura, Trebuchet MS, Arial, sans-serif;font-size: 21px;line-height: 36px;padding: 20px 0 15px 0;text-align: center;font-weight: normal;text-decoration: none;width: 100%;text-transform: none;">Otherwise known as a <span style="white-space:nowrap;">pre-shave primer.</span></td>
+                </tr>
+              </table>
+              
+              <!-- / Text Block -->
+              <!-- Button -->
+              <!--  css Border used for button spacing - more consistent results than padding
+                defining button with set width inline causes rendering issues in gmail IOS and testra/Bih pond
+                vml for rounded corners in OL 2007 + -->
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
+                  <tr>
+                    <td class="button" align="center" style="padding-top: 15px" >
+                      <div>
+                        <!--[if false]> <span style="display:none"> <![endif]-->
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:47px;v-text-anchor:middle;width:150px;" arcsize="7%" strokecolor="#1e3650" fillcolor="#263645">
+                        <w:anchorlock/>
+                         
+                        <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;letter-spacing: 2.5px;">SHOP NOW</center>
+                      </v:roundrect>
+                    <![endif]-->
+                    <!--[if false]> </span> <![endif]-->
+                    <a href="https://www.google.com" style="display:inline-block;text-decoration:none;color:#ffffff;font-size:13px;line-height:20px;letter-spacing: 2.5px; font-family: Futura, Trebuchet MS, Arial, sans-serif;font-weight:normal;background-color:#263645;border-radius:4px;padding: 0;border-top: 12px solid #263645; border-bottom: 12px solid #263645;border-right: 29px solid #263645;border-left: 29px solid #263645; text-align:center;-webkit-text-size-adjust:none;mso-hide:all;">SHOP NOW</a></div></td>
+                  </tr>
+                </table>
+                <!--/ Button -->
+              </td>
+            </tr>
+          </table>
+          <!--/ Single Column  -->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>em-1col</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>text.html</scope> 
+     <description>html|email|1col</description>
+</snippet>

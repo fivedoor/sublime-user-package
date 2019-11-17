@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+
+                <!-- Full width image -->
+                <tr>
+                  <td align="center" height="100%" valign="top" width="100%" style="padding: 24px 0 24px 0;width:100%" bgcolor="#ffffff">
+                    <a href="#LINK" target="_blank"><img src="https://via.placeholder.com/1360x600" alt="#######" width="680" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 680px; outline: none; text-decoration: none; width: 100%;"></a></td>
+                </tr>
+                <!--/ Full width image -->
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>em-img-full_width</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>text.html</scope> 
+     <description>html|email|img|full_width</description>
+</snippet>

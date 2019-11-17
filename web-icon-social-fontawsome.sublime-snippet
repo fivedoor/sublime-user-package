@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+    	<!--  fontawsome social icons css -->        
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  	
+<a href="${1}"><i class="fa fa-fw fa-${2:facebook}"></i>&nbsp; 
+]]></content>
+    <tabTrigger>fa</tabTrigger>
+    <description>Font Awesome Icon</description>
+    <scope>text.blade, text.html.blade, text.html</scope>
+</snippet>

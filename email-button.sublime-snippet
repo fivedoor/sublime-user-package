@@ -1,0 +1,51 @@
+<snippet>
+	<content><![CDATA[
+
+	<style type="text/css">
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .button a {
+        font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+        letter-spacing: 2px !important;
+        font-weight: bold !important;  /*  Adjusted from inline */ 
+        font-size: 14px !important;
+        border-top: 14px solid #263645 !important; 
+        border-bottom: 10px solid #263645 !important;      /*  Fix button padding IOS  */ 
+      } 
+    }
+    </style>
+
+     <style type="text/css">
+    [class="x_button"] a {
+      border-bottom: 14px solid #263645 !important;  /*  reset button padding/border in OWA/365 back to normal */ 
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      [class="x_button"] a {
+        font-weight: normal !important; /*  reset button font-weight in OWA/365 back to normal  because in OSX Chrome/Firefox the weight looks more like extra bold */ 
+      }
+    }
+  </style>
+
+ <!-- Button -->
+  <!--  css Border used for button spacing - more consistent results than padding
+    defining button with set width inline causes rendering issues in gmail IOS and testra/Bih pond
+    vml for rounded corners in OL 2007 + -->
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="button" align="center" style="padding-top: 15px" >
+          <div><!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:47px;v-text-anchor:middle;width:150px;" arcsize="7%" strokecolor="#1e3650" fillcolor="#263645">
+            <w:anchorlock/>
+            <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;letter-spacing: 2.5px; ">SHOP NOW</center>
+          </v:roundrect>
+        <![endif]--><a href="https://www.google.com" style="display:inline-block;text-decoration:none;color:#ffffff;font-size:13px;line-height:20px;letter-spacing: 2.5px; font-family: Futura, Trebuchet MS, Arial, sans-serif;font-weight:normal;background-color:#263645;border-radius:4px;padding: 0;border-top: 12px solid #263645; border-bottom: 12px solid #263645;border-right: 29px solid #263645;border-left: 29px solid #263645; text-align:center;-webkit-text-size-adjust:none;mso-hide:all;">SHOP NOW</a></div></td>
+      </tr>
+    </table>
+    <!--/ Button -->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>em-button</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>text.html</scope> 
+     <description>html|email|button</description>
+</snippet>

@@ -1,0 +1,105 @@
+<snippet>
+	<content><![CDATA[
+<!-- 
+    ========================== NOTES ==========================
+
+    ie-target - IE/Outlook 2000-2003 FIX
+	==================================
+	Adding an alt conditinal body tag with class="ie-target" means you can target IE using normal css with prefix of .ie-target  
+
+    .ie-target .bg 
+    ==============
+	Fix for OL 2000-2003 will display retina bg image but it does not fit to / cover the width & height of the container but spills over. Low res version used instead which fits. 
+
+    .ie-target .width-${3:textContainerWidth} 
+    =========================================
+	Fix for OL 2000-2003 text container table 
+
+	VML - 2007+ FIX
+    =============
+	Fix for OL 2007+ will display retina bg image but it does not fit to / cover the width & height of the container but spills over. Low res version used instead which fits. 
+
+	Inline background-image - GANGA FIX
+	=================================
+	GANGA gmail does not support table background or td background but does support background-image
+	Low res version served inline as high res has similar issues as OL2000-2003
+	
+	High res image for other clients is updated via CSS .bg class (which GANGA does not support/read)
+
+	https://freshinbox.com/blog/gmail-imap-ganga-finally-supports-background-images/
+
+	bg-text-container - GANGA FIX
+	===========================
+	padding above and below text is reduced in the inline td to fix weird rendering for GANGA gmail where as device width is reduced so text gets longer the bg does not stretch to the container but leaves a gap above and below.
+	Padding is reset back up to desired state in css 
+
+	.bg { background-image: url('bg_retina.jpg') !important; } MAIL.RU FIX
+	======================================================================
+	This may need to be wrapped in media query if you want the bg to appear (not fallback) in mail.ru though this does slow down the load of the bg image in mobile 
+
+	Further Reading
+	===============
+	https://www.emailonacid.com/blog/article/email-development/html-background-images-in-email/
+	http://www.emaildesignreview.com/html-email-coding/html-bulletproof-background-images-in-email-3850/
+	https://litmus.com/blog/the-ultimate-guide-to-background-images-in-email
+	
+    ========================== / NOTES ==========================
+-->
+
+<style>
+	.bg { background-image: url('bg_retina.jpg') !important; } 
+    .ie-target .bg { background-image: none !important; background: url('bg_lowres.jpg') !important; }
+    .ie-target .width-${3:textContainerWidth} { width: ${3:textContainerWidth}px !important; }
+    .bg-text-container { padding: 140px 20px !important; }
+</style>
+
+<!--[if IE]>
+  <body class="ie-target">
+<![endif]-->
+<!--[if !IE]><!-->
+<body class="body">
+<!--<![endif]-->
+
+<table class="main-table" align="center" bgcolor="#ffffff" style="Margin: 0 auto; background-color: #ffffff; border-spacing: 0; color: #000000; font-family: sans-serif; max-width: ${1:containerWidth}px; width: 100%;">
+	<!-- Background Image with Text : BEGIN -->
+	<tr>
+	  <td class="bg" background="bg_retina.jpg" bgcolor="#222222" valign="middle" style="background-image: url('bg_lowres.jpg'); text-align: center; background-position: center center !important; background-size: cover !important; background-repeat: no-repeat; margin:0; padding:0; background-size:100% 100% !important;">
+	    <!--[if gte mso 9]>
+	      <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:${1:containerWidth}px;height:${2:bgImageHeight}px; background-position: center center !important;">
+	      <v:fill type="tile" src="bg_lowres.jpg" color="#222222" />
+	      <v:textbox inset="0,0,0,0">
+	    <![endif]-->
+	    <div>
+	      <!--[if (gte mso 9)|(IE)]>
+	        <table border="0" cellspacing="0" cellpadding="0" align="center" width="${3:textContainerWidth}" style="width: ${3:textContainerWidth}px;">
+	          <tr>
+	            <td align="center" valign="top" width="${3:textContainerWidth}" style="width: ${3:textContainerWidth}px;">
+	            <![endif]-->
+	            <table class="width-${3:textContainerWidth}" border="0" cellpadding="0" cellspacing="0" align="center" width="${3:textContainerWidth}" style="max-width:${3:textContainerWidth}px; Margin: auto;width:100%;">
+	              <tr>
+	                <td class="bg-text-container" valign="middle" style="text-align: center; padding: 110px 20px; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #ffffff;">
+	                  Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat.
+	                </td>
+	              </tr>
+	            </table>
+	            <!--[if (gte mso 9)|(IE)]>
+	            </td>
+	          </tr>
+	        </table>
+	      <![endif]-->
+	    </div>
+	    <!--[if gte mso 9]>
+	    </v:textbox>
+	    </v:rect>
+	    <![endif]-->
+	  </td>
+	</tr>
+	<!-- Background Image with Text : END -->
+</table>
+]]></content>
+<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>em-img-bg-full</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>text.html</scope> 
+     <description>html|email|template</description>
+</snippet>

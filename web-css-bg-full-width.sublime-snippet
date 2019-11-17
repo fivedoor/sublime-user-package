@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background: url("$1"); 
+
+  /* Full height */
+   height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>css-bg-img-fw</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!--     <scope>source.css</scope>
+ --></snippet>
+

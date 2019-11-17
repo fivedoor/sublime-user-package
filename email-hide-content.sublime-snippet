@@ -1,0 +1,57 @@
+<snippet>
+	<content><![CDATA[
+<!-- 
+    ========================== NOTES ==========================
+    
+    mso-hide:all
+    ===============
+    This technique requires that you apply this style to any nested tables as well
+
+    Further Reading
+    ===============
+	https://freshinbox.com/blog/bulletproof-solution-to-hiding-mobile-content-when-opened-in-non-mobile-email-clients/
+    
+    ========================== / NOTES ==========================
+
+-->
+
+<style>
+ @media screen and (max-device-width: 480px) {
+
+    div .mobile-content {
+	    display: block !important;
+	    max-height: none !important;
+	    overflow: visable!important;
+	    }
+
+	td .hide-on-mobile {
+		display: none!important; /* Generic*/
+		max-height:0!important; /* Gmail*/
+		mso-hide:all!important; /* Outlook clients*/
+		overflow:hidden!important; /* Generic */
+		visibility: hidden!important; /* Generic */
+		}
+
+}
+</style>
+
+<!-- METHOD 1 -->
+<!--[if !mso]><!-->
+<div class="mobile-content" style="display:none;max-height:0px;overflow:hidden;">
+  MOBILE CONTENT
+</div>
+<!--<![endif]-->
+
+<!-- METHOD 2 -->
+<div class="mobile-content" style="mso-hide:all;display:none;max-height:0px;overflow:hidden;">
+  MOBILE CONTENT
+</div>
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>em-hide-content</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>text.html</scope> 
+     <description>html|email|hide</description>
+</snippet>

@@ -1,0 +1,155 @@
+<snippet>
+	<content><![CDATA[
+
+<!-- 
+    ========================== NOTES ==========================
+    
+    Get all @font-face types here:
+    ==============================
+    Get google font @fontface set up - all file types here :
+    https://google-webfonts-helper.herokuapp.com/fonts/lato?subsets=latin
+  
+    "The .woff format has the best support when it comes to email, so we suggest using this format when you can."
+    https://litmus.com/blog/the-ultimate-guide-to-web-fonts
+    
+    Get google fonts here:
+    =====================
+    https://fonts.googleapis.com/css?family=Roboto&display=swap
+    N.B. if you load page in chrome you will only get the woff2 files displaying. Try Safari should get all options
+    "if you're grabbing the embeds from Google fonts, they tend to tailor the css they serve by browser detection. That's why when you check the css using chrome, they only serve up woff2, which doesn't (didn't?) work on iOS. So if you're using chrome, one trick is to view the google fonts css file and use the mobile preview in Inspect to change your user agent to iPhone"
+    
+    local()  
+    =======
+    used to check if the font is on the user’s system first.
+    https://www.broken-links.com/2009/06/30/checking-for-installed-fonts-with-font-face-and-local/ 
+
+    mso-font-alt:
+    =============
+    Outlook fallback font. OL will first try to apply the font named in the mso-font-alt property (if it’s installed on the machine)
+    https://emails.hteumeuleu.com/today-i-learned-about-mso-generic-font-family-85b0e4703079
+    Can wrap @font-face style block with mso hide conditional comment as alternative means of creating fallback 
+    
+    mso-generic-font-family: 
+    ========================
+    Outlook fallback font
+    If mso-font-alt property is not installed on the machine then applies the family defined in mso-generic-font-family.
+    https://emails.hteumeuleu.com/today-i-learned-about-mso-generic-font-family-85b0e4703079
+    
+    font-display:
+    =============
+    https://css-tricks.com/almanac/properties/f/font-display/
+    
+    ========================== / NOTES ==========================
+
+-->
+
+<style type="text/css">
+    /*
+  |--------------------------------------------------------------------------
+  | WEB FONTS @font-face
+  |-------------------------------------------------------------------------- 
+  */
+    @font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: normal;  /*  Specify font-weight here*/
+  src: 
+    local('Museo Sans'), 
+    local('Museo Sans'),
+    url('http://cdn.harrys.com/email/webfonts/2D9B47_1_0.woff') format('woff');
+    mso-font-alt: 'Museo Sans', Verdana, Geneva, sans-serif;
+    mso-generic-font-family: swiss;
+    font-display: fallback; 
+}
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: bold; /*  Specify font-weight here*/
+  src: 
+    local('Museo Sans'), 
+    local('Museo Sans'),
+    url('http://cdn.harrys.com/email/webfonts/2D9B47_0_0.woff') format('woff');
+    mso-font-alt: 'Museo Sans', Verdana, Geneva, sans-serif;
+    mso-generic-font-family: swiss;
+    font-display: fallback; 
+}
+@font-face {
+  font-family: 'Brandon Grotesque';
+   font-style: normal;
+  font-weight: normal; /*  Specify font-weight here*/
+  src: 
+    local('Brandon Grotesque'), 
+    local('Brandon Grotesque'),
+    url('http://cdn.harrys.com/email/webfonts/3083F9_2_0.woff') format('woff');
+
+    mso-font-alt: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif ;
+    mso-generic-font-family: swiss;
+    font-display: fallback; 
+}
+ @font-face {
+  font-family: 'Brandon Grotesque';
+  font-style: normal;
+  font-weight: bold; /*  Specify font-weight here*/
+  src: 
+    local('Brandon Grotesque'), 
+    local('Brandon Grotesque'),
+    url('http://cdn.harrys.com/email/webfonts/2D9B47_6_0.woff') format('woff');
+    mso-font-alt: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif ;
+    mso-generic-font-family: swiss;
+    font-display: fallback; 
+} 
+</style>
+
+<!--  Target Webkit Devices with @font-face support -->
+<style type="text/css">
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .body, 
+    .body a, 
+    .footer-text,
+    .footer-text a {
+     font-family: 'Museo Sans', Verdana, Geneva, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -webkit-text-size-adjust:none
+  }
+    .h2 {
+     font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+     letter-spacing: 1.09px !important;
+
+  }
+    .h3 {
+     font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+     letter-spacing: 0.56px !important;
+     font-size: 14px !important;
+
+  }
+}
+</style>
+
+
+<td class="h3" style="
+letter-spacing: 0.56px;
+-webkit-text-size-adjust: none;
+color: #263645;
+font-family: Futura, Trebuchet MS, Arial, sans-serif;
+font-size: 14px;
+line-height: 24px; 
+padding: 6px 0 6px 0;
+text-align: center;
+font-weight: normal;
+text-decoration: none;
+width: 100%;
+text-transform: none;">
+    Lorem Ipsum Sed etiam semper doralus qunintum teneas
+
+</td>
+
+]]></content>
+<tabTrigger>em-fontface</tabTrigger> 
+
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<!-- <tabTrigger>hello</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+ <description>html|email|@font-face</description>
+
+	<scope>text.html</scope>
+</snippet>
