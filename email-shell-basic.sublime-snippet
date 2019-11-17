@@ -4,40 +4,37 @@
     REGEX TO REMOVE COMMENTS
     ======================== 
     (?s)<!---(?!<!)[^\[>].*?-->|/\*.+?\*/
-  
-<!---
-    ========================== NOTES ==========================
 
+    <!---
+        ========================== NOTES ==========================
 
-    VARIABLES
-    =========
-    ${1:title}
-    ${2:contentWidth}
-    #${3:bgColor}
-    ${4:cellpad}
+        VARIABLES
+        =========
+        ${1:title}
+        ${2:contentWidth}
+        #${3:bgColor}
+        ${4:content-pad}
 
+        WIDTHS
+        ======
+        - width set (in px) within attribute for OL stability. "When you have an image with width="100%", Outlook will display it at 100% size, regardless of any classes, !important marks, wrapping divs, tables or cells with finite widths defined. So when you add an image at double the size, it blows your email right out in Outlook." 
+        https://litmus.com/community/discussions/1007-outlook-image-sizes
+        - width defined in CSS for retaining structure in OL 120+ dpi  
+        - width defined as percentage in CSS for fluid layout scalling in GANGA gmail app (where no CSS or media queries support) 
+        - max width added in img CSS for Outlook 2000-2003 (possibly more) to keep images set at 100% behaving
 
-    WIDTHS
-    ======
-    - width set (in px) within attribute for OL stability. "When you have an image with width="100%", Outlook will display it at 100% size, regardless of any classes, !important marks, wrapping divs, tables or cells with finite widths defined. So when you add an image at double the size, it blows your email right out in Outlook." 
-    https://litmus.com/community/discussions/1007-outlook-image-sizes
-    - width defined in CSS for retaining structure in OL 120+ dpi  
-    - width defined as percentage in CSS for fluid layout scalling in GANGA gmail app (where no CSS or media queries support) 
-    - max width added in img CSS for Outlook 2000-2003 (possibly more) to keep images set at 100% behaving
+        ========================== / NOTES ==========================
 
-
-    ========================== / NOTES ==========================
-
--->
+    -->
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"> <!--- Including a Vector Markup Language (VML) namespace declaration, to ensure email will render any VML -->
 <head><!--- Yahoo App Android will strip this https://github.com/hteumeuleu/email-bugs/issues/28 --></head>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--- Responsive emails get auto-scaled in iOS10 & iOS11: Autoscaling in responsive emails leads to emails appearing off-centered or zoomed out. To solve this, add “padding:0;” to the <body> tag and to disable autoscaling, use this tag 
-    https://blog.mailup.com/2019/01/rendering-emails/  -->
-<meta name="x-apple-disable-message-reformatting" /> <!---
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--- Responsive emails get auto-scaled in iOS10 & iOS11: Autoscaling in responsive emails leads to emails appearing off-centered or zoomed out. To solve this, add “padding:0;” to the <body> tag and to disable autoscaling, use this tag 
+    https://blog.mailup.com/2019/01/rendering-emails/ -->
+    <meta name="x-apple-disable-message-reformatting" /> <!---
     Use the latest (edge) version of IE rendering engine 
     Enables CSS3 and media queries in Windows Phone 7.5 and higher. 
     Enables “edge” mode in Live Mail and the Windows 8 Mail app, giving developers access to rounded borders and media queries.  
@@ -46,242 +43,234 @@
     JH updated format from 
     https://litmus.com/community/snippets/21-outlook-2000-2002-and-live-mail-fix-for-safe-use-of-ie-edge-meta-when-used-with-hybrid-i-know-it-s-strange 
     as that comment format caused non-rendering in T_online.de 
--->
-<!--[if !mso]><!-- -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<!--<![endif]-->
-<meta name="format-detection" content="telephone=no"> <!--- Disables auto linking telephone where its supported -->
-<meta name="format-detection" content="date=no"> <!---     Disables auto linking date where its supported -->
-<meta name="format-detection" content="address=no"> <!---     Disables auto linking address where its supported -->
-<!--[if gte mso 9]><xml>
-    <o:OfficeDocumentSettings>
-    <o:AllowPNG/>
-    <o:PixelsPerInch>96</o:PixelsPerInch>
+    -->
+    <!--[if !mso]><!-- -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<![endif]-->
+    <meta name="format-detection" content="telephone=no"> <!--- Disables auto linking telephone where its supported -->
+    <meta name="format-detection" content="date=no"> <!--- Disables auto linking date where its supported -->
+    <meta name="format-detection" content="address=no"> <!--- Disables auto linking address where its supported -->
+    <!--[if gte mso 9]><xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
     </o:OfficeDocumentSettings>
-</xml><![endif]-->
-<!---  Targets all OL clients to force lower DPI rate inside the code, helps prevent image scaling. 
+    </xml><![endif]-->
+    <!---  Targets all OL clients to force lower DPI rate inside the code, helps prevent image scaling. 
     You must include the VML declaration we covered above or this code will not work.
     https://www.courtneyfantinato.com/correcting-outlook-dpi-scaling-issues/
     https://www.emailonacid.com/blog/article/email-development/dpi_scaling_in_outlook_2007-2013/ -->
-<title>${1:title}</title>
+    <title>${1:title}</title>
 
-<style type="text/css">
- /*
-  |--------------------------------------------------------------------------
-  | RESETS 
-  |-------------------------------------------------------------------------- 
-  */
-    .ReadMsgBody { /* Force Outlook.com  to display emails at full width */
-        width: 100%; 
-        background-color: #ffffff; /* or whatever your want */
-    } 
-    .ExternalClass { /* Force Outlook.com  to display emails at full width */
-        width: 100%; 
-        background-color: #ffffff; /* or whatever your want */
-    }
-    .ExternalClass p, 
-    .ExternalClass span, 
-    .ExternalClass font, 
-    .ExternalClass td,
-    .ExternalClass div { /* Overwrite Outlook.com’s Embedded CSS  |  http://www.emailonacid.com/forum/viewthread/43/ */
-        line-height: 100%;
-    } 
-    body { /* Webkit and Windows Mobile Text Size Adjustment. */ /* Much like in OSX and iOS, small text is also resized on Windows Mobile. *//* The same vendor-prefix-based CSS property is used here, just with the ms vendor prefix instead of the webkit one. */
-        width: 100%; 
-        background-color: #ffffff; /* or whatever your want */
-        margin:0; 
-        padding:0; 
-    }  
-    body, /* Remove spacing around Outlook 07, 10 tables. *//* More info : http://www.campaignmonitor.com/blog/post/3694/removing-spacing-from-around-tables-in-outlook-2007-and-2010/ *//* Bring inline: Yes */
-    table,
-    td,
-    a { 
-        -webkit-text-size-adjust: 100%; 
-        -ms-text-size-adjust: 100%; 
-    } 
-    table, /* Works to help ie properly resize images in IE. (if you are resizing them using the width and height attributes) */
-    td {
-        mso-table-lspace: 0pt; 
-        mso-table-rspace: 0pt; 
-    } 
-     p { /* Yahoo paragraph fix: removes the proper spacing or the paragraph (p) tag.  | To correct we set the top/bottom margin to 1em in the head of the document. Simple fix with little effect on other styling.  |  NOTE: It is also common to use two breaks instead of the paragraph tag but I think this way is cleaner and more semantic. NOTE: This example recommends 1em.  |  More info on setting web defaults:  | http://www.w3.org/TR/CSS21/sample.html or http://meiert.com/en/blog/20070922/user-agent-style-sheets/  |  Bring inline: Yes. */
-        margin: 1em 0;
-    }
-    img { 
-        -ms-interpolation-mode: bicubic; } 
-    img {
-        border: 0;
-        height: auto;
-        line-height: 100%;
-        outline: none;
-        text-decoration: none;
-    } 
-    table { /* Outlook 07, 10 Padding issue fix  |  "newer" versions of Outlook add some padding around table cells potentially throwing off your perfectly pixeled table.  The issue can cause added space and also throw off borders completely.  |  Use this fix in your header or inline to safely fix your table woes.  |  More info: http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells/  | http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07/  |  Bring inline: No. */
+    <style type="text/css">
+        /*
+        |--------------------------------------------------------------------------
+        | RESETS 
+        |-------------------------------------------------------------------------- 
+        */
+        .ReadMsgBody { /* Force Outlook.com  to display emails at full width */
+            width: 100%; 
+            background-color: #ffffff; /* or whatever your want */
+        } 
+        .ExternalClass { /* Force Outlook.com  to display emails at full width */
+            width: 100%; 
+            background-color: #ffffff; /* or whatever your want */
+        }
+        .ExternalClass p, 
+        .ExternalClass span, 
+        .ExternalClass font, 
+        .ExternalClass td,
+        .ExternalClass div { /* Overwrite Outlook.com’s Embedded CSS  |  http://www.emailonacid.com/forum/viewthread/43/ */
+            line-height: 100%;
+        } 
+        body { /* Webkit and Windows Mobile Text Size Adjustment. */ /* Much like in OSX and iOS, small text is also resized on Windows Mobile. *//* The same vendor-prefix-based CSS property is used here, just with the ms vendor prefix instead of the webkit one. */
+            width: 100%; 
+            background-color: #ffffff; /* or whatever your want */
+            margin:0; 
+            padding:0; 
+        }  
+        body, /* Remove spacing around Outlook 07, 10 tables. *//* More info : http://www.campaignmonitor.com/blog/post/3694/removing-spacing-from-around-tables-in-outlook-2007-and-2010/ *//* Bring inline: Yes */
+        table,
+        td,
+        a { 
+            -webkit-text-size-adjust: 100%; 
+            -ms-text-size-adjust: 100%; 
+        } 
+        table, /* Works to help ie properly resize images in IE. (if you are resizing them using the width and height attributes) */
+        td {
+            mso-table-lspace: 0pt; 
+            mso-table-rspace: 0pt; 
+        } 
+        p { /* Yahoo paragraph fix: removes the proper spacing or the paragraph (p) tag.  | To correct we set the top/bottom margin to 1em in the head of the document. Simple fix with little effect on other styling.  |  NOTE: It is also common to use two breaks instead of the paragraph tag but I think this way is cleaner and more semantic. NOTE: This example recommends 1em.  |  More info on setting web defaults:  | http://www.w3.org/TR/CSS21/sample.html or http://meiert.com/en/blog/20070922/user-agent-style-sheets/  |  Bring inline: Yes. */
+            margin: 1em 0;
+        }
+        img { 
+            -ms-interpolation-mode: bicubic; 
+        } 
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        } 
+        table { /* Outlook 07, 10 Padding issue fix  |  "newer" versions of Outlook add some padding around table cells potentially throwing off your perfectly pixeled table.  The issue can cause added space and also throw off borders completely.  |  Use this fix in your header or inline to safely fix your table woes.  |  More info: http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells/  | http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07/  |  Bring inline: No. */
         border-collapse: collapse !important; 
         border-spacing: 0; 
-    } 
-    body {
-        height: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-    }
-    * {
-        margin: 0;
-        padding: 0;
-    } 
-    div[style*="margin: 16px 0"] { /*  Android Center Fix */ /* https://litmus.com/community/snippets/57-android-4-4-center-hack?utm_campaign=bestpractices_snippets&utm_source=litmusblog&utm_medium=blog | https://litmus.com/community/code/4194-why-is-email-not-centered-on-android-4-4 | https://blog.jmwhite.co.uk/2015/09/19/revealing-why-emails-appear-off-centre-in-android-4-4-kitkat/ | https://emails.hteumeuleu.com/today-i-learned-about-mso-generic-font-family-85b0e4703079 */
-        margin: 0 auto !important;
-    } 
-    body { /*  Android Center Fix 2  |  https://litmus.com/community/code/4432-android-4-4-still-not-centering */
-        margin: 0 auto !important;
-    }  
-    a[x-apple-data-detectors] {  /* Remove Blue Links Apple  |  https://litmus.com/community/snippets/8-remove-blue-links-on-apple-devices */
-        color: inherit !important;
-        text-decoration: none !important;
-        font-size: inherit !important;
-        font-family: inherit !important;
-        font-weight: inherit !important;
-        line-height: inherit !important;
-    } 
-    a[href^="tel"],
-    a[href^="sms"] { /* Remove Mobile styles | target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers. Use these two blocks of code to "unstyle" any numbers that may be linked. The second block gives you a class to apply with a span tag to the numbers you would like linked and styled. | Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/. */
-        text-decoration: none;
-        color: #30383d; /* or whatever your want */
-        pointer-events: none;
-        cursor: default;
-    }  
-    .mobile_link a[href^="tel"],
-    .mobile_link a[href^="sms"] {   /* Remove Mobile styles */
-        text-decoration: default;
-        color: #30383d !important; /* or whatever your want */
-        pointer-events: auto;
-        cursor: default;
-    }
-    #outlook a {     /* Force Outlook to provide a "view in browser" menu link. */
-        padding:0;
-    } 
-    .black a {
-        text-decoration: none;
-        color: #30383d; /* or whatever your want */
-    }
- </style>
-
-<style>  
-  /*
-  |--------------------------------------------------------------------------
-  | MODULE CSS 
-  |-------------------------------------------------------------------------- 
-  */
-  /* Cellpad IE/MSO */ 
-  .ie-target td.cellpad,
-  .mso-target td.cellpad { padding-left: {4:cellpad}px !important; padding-right: {4:cellpad}px !important; }
-</style>
-   
-<style type="text/css">
-/*
-|--------------------------------------------------------------------------
-| MEDIA QUERIES 
-|-------------------------------------------------------------------------- 
-   
-   CONTENT BREAKPOINT + 15px scrollbar 
-   --------------------------------------------------------------------------- */ 
-    @media only screen and (max-width: 680px)  {
-        .nomob { 
-            display: none !important; }
-        .showmob { 
-            max-height: none !important; 
-            font-size: 12px !important; 
-            display: block !important; 
-        }
-        .content-width {
-            width:${2:contentWidth} !important; /* set content-width e.g. 680px or 100% as preferred */
-            padding:0;
-        }
-        .center .cellpad {
-            text-align: center!important;
-        }
-        .width-100percent, 
-        .width-100percent-OL { 
+        } 
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
             width: 100% !important;
         }
-        .max-width-none { max-width: none !important; }
-
-        .cellpad { }
-    }
-
-    /* MODULE BREAKPOINT 2
-    --------------------------------------------------------------------------- */ 
-    @media only screen and (max-width: 479px) {
-        .content-width {
-            width:100% !important; 
+        * {
+            margin: 0;
+            padding: 0;
+        } 
+        div[style*="margin: 16px 0"] { /*  Android Center Fix */ /* https://litmus.com/community/snippets/57-android-4-4-center-hack?utm_campaign=bestpractices_snippets&utm_source=litmusblog&utm_medium=blog | https://litmus.com/community/code/4194-why-is-email-not-centered-on-android-4-4 | https://blog.jmwhite.co.uk/2015/09/19/revealing-why-emails-appear-off-centre-in-android-4-4-kitkat/ | https://emails.hteumeuleu.com/today-i-learned-about-mso-generic-font-family-85b0e4703079 */
+            margin: 0 auto !important;
+        } 
+        body { /*  Android Center Fix 2  |  https://litmus.com/community/code/4432-android-4-4-still-not-centering */
+            margin: 0 auto !important;
+        }  
+        a[x-apple-data-detectors] {  /* Remove Blue Links Apple  |  https://litmus.com/community/snippets/8-remove-blue-links-on-apple-devices */
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        } 
+        a[href^="tel"],
+        a[href^="sms"] { /* Remove Mobile styles | target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers. Use these two blocks of code to "unstyle" any numbers that may be linked. The second block gives you a class to apply with a span tag to the numbers you would like linked and styled. | Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/. */
+            text-decoration: none;
+            color: #30383d; /* or whatever your want */
+            pointer-events: none;
+            cursor: default;
+        }  
+        .mobile_link a[href^="tel"],
+        .mobile_link a[href^="sms"] {   /* Remove Mobile styles */
+            text-decoration: default;
+            color: #30383d !important; /* or whatever your want */
+            pointer-events: auto;
+            cursor: default;
+        }
+        #outlook a {     /* Force Outlook to provide a "view in browser" menu link. */
             padding:0;
+        } 
+        .black a {
+            text-decoration: none;
+            color: #30383d; /* or whatever your want */
         }
-        .center .cellpad { 
-            text-align: center !important;
+    </style>
+
+    <style>  
+        /*
+        |--------------------------------------------------------------------------
+        | MODULE CSS 
+        |-------------------------------------------------------------------------- 
+        */
+        /* IE/MSO */ 
+        .ie-target td.content-pad,
+        .mso-target td.content-pad { padding-left: {4:content-pad}px !important; padding-right: {4:content-pad}px !important; } /* define left/right padding in px if required with !important; */
+        .ie-target .fallback-font,
+        .mso-target .fallback-font { font-family: arial, sans-serif !important; } /* define fallback font if required */
+        .width-100percent-OL { width: 100% !important; } /* Need to target tables defined with a percentage width that are nested in OL only conditional table or td with fixed widths and make them 100% width within those tables/td */
+    </style>
+
+    <style type="text/css">
+        /*
+        |--------------------------------------------------------------------------
+        | MEDIA QUERIES 
+        |-------------------------------------------------------------------------- 
+
+        CONTENT BREAKPOINT + 15px scrollbar 
+        --------------------------------------------------------------------------- */ 
+        @media only screen and (max-width: 680px)  {
+            .nomob { 
+                display: none !important; }
+            .showmob { 
+                max-height: none !important; 
+                font-size: 12px !important; 
+                display: block !important; 
+            }
+            .content-width {
+                width:${2:contentWidth} !important; /* set content-width e.g. 680px or 100% as preferred */
+                padding:0;
+            }
+            .center .content-pad {
+                text-align: center!important;
+            }
+            .width-100percent, 
+            .width-100percent-OL { 
+                width: 100% !important;
+            }
+            .max-width-none { max-width: none !important; }
+
+            .content-pad { }
         }
-        u + .body .wrapper {  /* Gmail (IOS & Android) Centering & Sizing Reset */
-            width:100% !important;
-            width:100vw !important;
+
+        /* MODULE BREAKPOINT 2
+        --------------------------------------------------------------------------- */ 
+        @media only screen and (max-width: 479px) {
+            .content-width {
+                width:100% !important; 
+                padding:0;
+            }
+            .center .content-pad { 
+                text-align: center !important;
+            }
+            u + .body .wrapper {  /* Gmail (IOS & Android) Centering & Sizing Reset */
+                width:100% !important;
+                width:100vw !important;
+            }
+            /* NB the above replaced the below options as was working better to make sure text maintained right size in Harry's email | May still need to tap into below for any centering issues  | <body class="body" Set in combination with CSS for targeting gmail | Targets Gmail (IOS & Android) | u ~ div .wrapper {min-width: 100vw;} | Targets Gmail on Android: | div > u ~ div .wrapper {min-width: 100%;} | The div in u ~ div {min-width: 100vw;} is your <body> tag transformed into a div by Gmail. | Apparently, Gmail Android doesn't like it when you use vw to force it to full width, and goes a bit off screen. |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-14991 |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-13503 */
         }
-        /* NB the above replaced the below options as was working better to make sure text maintained right size in Harry's email | May still need to tap into below for any centering issues  | <body class="body" Set in combination with CSS for targeting gmail | Targets Gmail (IOS & Android) | u ~ div .wrapper {min-width: 100vw;} | Targets Gmail on Android: | div > u ~ div .wrapper {min-width: 100%;} | The div in u ~ div {min-width: 100vw;} is your <body> tag transformed into a div by Gmail. | Apparently, Gmail Android doesn't like it when you use vw to force it to full width, and goes a bit off screen. |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-14991 |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-13503 */
-    }
+    </style>
 
-</style>
-
-<!--[if (gte mso 9)|(IE)]>
-  <style >
-    .fallback-font { font-family: arial, sans-serif; !important; } /* define fallback font if required */
-    td.cellpad {  } /* define left/right padding in px if required with !important; */
-    .width-100percent-OL { width: 100% !important; } /* Need to target tables defined with a percentage width that are nested in OL only conditional table or td with fixed widths and make them 100% width within those tables/td */
-  </style>
-<![endif]-->
-
-<!-- Email Testing -->
-<style type="text/css">
-    table tr td {background-color:yellow !important;}
-    table tr td table tr td {background-color:pink !important;}
-    table tr td table tr td table tr td {background-color:orange !important;}
-    table tr td table tr td table tr td table tr td {background-color:green !important;}
-    table tr td table tr td table tr td table tr td table tr td {background-color:cyan !important;}
-</style> 
-
+    <style type="text/css">
+        /*
+       |--------------------------------------------------------------------------
+       | TESTING 
+       |-------------------------------------------------------------------------- 
+       | 
+       */ 
+        table tr td {background-color:yellow !important;}
+        table tr td table tr td {background-color:pink !important;}
+        table tr td table tr td table tr td {background-color:orange !important;}
+        table tr td table tr td table tr td table tr td {background-color:green !important;}
+        table tr td table tr td table tr td table tr td table tr td {background-color:cyan !important;}
+    </style> 
 
 </head>
 
 <!--[if IE]>
-  <body class="ie-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#eeeeee" style="margin:0;padding:0;min-width:100%;background-color: #eeeeee !important;mso-line-height-rule: exactly;">
+<body class="ie-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#eeeeee" style="margin:0;padding:0;min-width:100%;background-color: #eeeeee !important;mso-line-height-rule: exactly;">
 <![endif]-->
 
 <!--[if (gte mso 9)]>
-  <body class="mso-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#eeeeee" style="margin:0;padding:0;min-width:100%;background-color: #eeeeee !important;mso-line-height-rule: exactly;">
+<body class="mso-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#eeeeee" style="margin:0;padding:0;min-width:100%;background-color: #eeeeee !important;mso-line-height-rule: exactly;">
 <![endif]-->
 
 <!--[if !(gte mso 9)|!IE]>  <!-- -->
 <body class="body" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#${3:bgColor}" style="margin:0;padding:0;min-width:100%;background-color: #${3:bgColor} !important;mso-line-height-rule: exactly; ">
-<!--<![endif]-->
+    <!--<![endif]-->
 
-<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;"><!-- Preheader message here --></div>
+    <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;"><!-- Preheader message here --></div>
 
-<!-- Wrapper -->
-<table class="wrapper" width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#${3:bgColor}" style="background-color: #${3:bgColor} !important;width:100%">
-    <tr>
-        <td width="100%" valign="top" bgcolor="#${3:bgColor}" style="width:100%">
+    <!-- Wrapper -->
+    <table class="wrapper" width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#${3:bgColor}" style="background-color: #${3:bgColor} !important;width:100%">
+        <tr>
+            <td width="100%" valign="top" bgcolor="#${3:bgColor}" style="width:100%">
 
-       
 
-         
- 
-
-        </td>
-    </tr>
-</table> 
-<!-- End Wrapper -->
+            </td>
+        </tr>
+    </table> 
+    <!-- End Wrapper -->
 
 </body></html>
-
-
-
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
