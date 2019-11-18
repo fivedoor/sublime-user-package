@@ -100,8 +100,12 @@
 } 
 </style>
 
-<!--  Target Webkit Devices with @font-face support -->
 <style type="text/css">
+   /*
+  |--------------------------------------------------------------------------
+  | WEBKIT ENHANCMENTS
+  |-------------------------------------------------------------------------- 
+  */
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     .body, 
     .body a, 
@@ -110,19 +114,19 @@
      font-family: 'Museo Sans', Verdana, Geneva, sans-serif;
           -webkit-font-smoothing: antialiased;
           -webkit-text-size-adjust:none
-  }
+    }
     .h2 {
      font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
      letter-spacing: 1.09px !important;
 
-  }
+    } 
     .h3 {
      font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
      letter-spacing: 0.56px !important;
      font-size: 14px !important;
 
+    }
   }
-}
 </style>
 
 
