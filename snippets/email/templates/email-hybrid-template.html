@@ -23,7 +23,11 @@
   <title>Baby Face</title>
 
   <style type="text/css">
-    
+    /*
+    |--------------------------------------------------------------------------
+    | WEB FONTS 
+    |-------------------------------------------------------------------------- 
+    */
     @font-face {
       font-family: 'Museo Sans';
       font-style: normal;
@@ -76,7 +80,11 @@
   </style>
 
   <style type="text/css">
-    
+    /*
+    |--------------------------------------------------------------------------
+    | RESETS 
+    |-------------------------------------------------------------------------- 
+    */
     .ReadMsgBody { 
       width: 100%; 
       background-color: #ffffff; 
@@ -179,20 +187,28 @@
   </style>
 
   <style>  
-    
-     
+    /*
+    |--------------------------------------------------------------------------
+    | MODULE CSS
+    |-------------------------------------------------------------------------- 
+    */
+    /* BG Mod */ 
     .bg { background-image: url('http://res.cloudinary.com/dagb1l62t/image/upload/v1480276071/litmus/bg.jpg') !important; }
     .ie-target .bg { background-image: none !important; background: url('https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/litmus_bg_lo.png?alt=media&token=7bc4bc5a-d65b-4b68-a659-414136262654') !important; }
     .ie-target .width-500 { width: 500px !important; }
     .bg-text-container { padding: 140px 20px !important; }
-    
+    /* Cellpad */
     .ie-target td.container-pad,
-    .mso-target td.container-pad { padding-left: 14px !important; padding-right: 14px !important; }   
+    .mso-target td.container-pad { padding-left: 14px !important; padding-right: 14px !important; }   /* Apply ixed width padding for mso/ie stability */
 
   </style>
 
   <style type="text/css">
-    
+    /*
+    |--------------------------------------------------------------------------
+    | WEBKIT ENHANCMENTS
+    |-------------------------------------------------------------------------- 
+    */
     @media screen and (-webkit-min-device-pixel-ratio: 0) {
       .body, 
       .body a, 
@@ -218,86 +234,107 @@
         font-weight: bold !important;
         font-size: 14px !important;
         border-top: 14px solid #263645 !important; 
-        border-bottom: 10px solid #263645 !important;       
+        border-bottom: 10px solid #263645 !important;      /*  Fix button padding IOS  */ 
       } 
     }
   </style>
 
   <style type="text/css">
-    
+    /*
+    |--------------------------------------------------------------------------
+    | OWA ENHANCMENTS
+    |-------------------------------------------------------------------------- 
+    */
     [class="x_button"] a {
-      border-bottom: 14px solid #263645 !important;   
+      border-bottom: 14px solid #263645 !important;  /*  reset button padding/border in OWA/365 back to normal  */ 
     }
     @media screen and (-webkit-min-device-pixel-ratio: 0) {
       [class="x_button"] a {
-        font-weight: normal !important;  
+        font-weight: normal !important; /*  reset button font-weight in OWA/365 back to normal  because in OSX Chrome/Firefox the weight looks more like extra bold */ 
       }
     }
   </style>
 
   <style type="text/css">
-     
+    /*
+    |--------------------------------------------------------------------------
+    | MEDIA QUERIES 
+    |-------------------------------------------------------------------------- 
+
+    CONTAINER BREAKPOINT (+ 15px scrollbar) | Apply Fluid widths | 3COL ---> 2COL 
+    ---------------------------------------------------------------------------- */ 
     @media only screen and (max-width: 595px)  {
-      
+      /* PRESETS */
       .nomob { display: none !important; }
       .showmob { max-height: none !important; font-size: 12px !important; display: block !important; }
       .container { width:100% !important; padding:0;}
       .center .container-pad { text-align: center!important;}
       .width-100percent, 
-      .width-100percent-OL { width: 100% !important;} 
+      .width-100percent-OL { width: 100% !important;} /* inline width-100percent-OL for non-hybrid build */
       .inner-container,
       .max-width-none { max-width: none !important; }
 
-      .div-half-width { width: 100% !important; max-width: 50% !important; } 
-      .div-4col-pids { width: 50% !important; max-width: none !important; }  
-      .div-3col-pids { width: 33.333% !important; min-width: 0 !important; max-width: none !important; }  
-      .mod-3pid .inner-container { width: 76.5% !important;}  
+      .div-half-width { width: 100% !important; max-width: 50% !important; } /* 3COL | 2COL | 4PID | 3COL ---> 2COL |now 2 half-width fluid columns */
+      .div-4col-pids { width: 50% !important; max-width: none !important; }  /* 4PID | set 2 half-width fluid columns */
+      .div-3col-pids { width: 33.333% !important; min-width: 0 !important; max-width: none !important; }  /*  3PID | set fluid columns */
+      .mod-3pid .inner-container { width: 76.5% !important;}  /* set to fluid so container scales relative to 4pids - thought it would be 75% but by trial and error 76.5% means images scale relative */
 
       .img-2col, 
-      .img-3col { width: 95.3125% !important; max-width: none !important; }  
+      .img-3col { width: 95.3125% !important; max-width: none !important; }  /* 3COL | match 3COL image size with 2COL for consistent scaling */
 
-      .hero { padding-top: 30px  !important;}   
-      .h3 {text-align: left !important;}      
+      .hero { padding-top: 30px  !important;}  /* Harrys */ 
+      .h3 {text-align: left !important;}     /* Harrys */ 
     }
 
-    @media only screen and (max-width: 520px) { 
-      .container-pad {  padding-left: 5% !important;padding-right: 5% !important; }  
 
-      .div-half-width { width: 100% !important; max-width: none !important; } 
-      .mod-3pid .inner-container { width: 100% !important; max-width: none !important; }  
-      .div-3col-pids { width: 50% !important; max-width: none !important; }   
-      .column-three.div-3col-pids { display: block !important; } 
-      .float-l { float: left; }  
-      .float-r { float: right; } 
-      .product-table { max-width: none !important; } 
+    /*  BREAKPOINT 2 | 2COL ---> 1COL | Width you want 2COL to stack 
+    --------------------------------------------------------------------------- */ 
+    @media only screen and (max-width: 520px) { 
+      .container-pad {  padding-left: 5% !important;padding-right: 5% !important; }  /* ALL | increase container padding when stacking so images aren't huge */
+
+      .div-half-width { width: 100% !important; max-width: none !important; } /* 2COL | 3COL | 4PID | stack 2COL & 3COL & 4PID to single columns at 2nd breakpoint */
+      .mod-3pid .inner-container { width: 100% !important; max-width: none !important; } /* 3PID | now full width container... */ 
+      .div-3col-pids { width: 50% !important; max-width: none !important; }  /* 3PID | 3 half-width fluid pids... */ 
+      .column-three.div-3col-pids { display: block !important; } /* 3PID | center align third pid below other 2pids */
+      .float-l { float: left; }  /* 3COL | 3PID | 4PID | required for gmail app */
+      .float-r { float: right; } /* 3COL | 3PID | 4PID | required for gmail app */
+      .product-table { max-width: none !important; } /* 3PID | 4PID | enable 2 column stacking | also overide "float: right" on third 3PID column with float: none - jh removed this as not sure is necessary? */
 
       .img-2col, 
-      .img-3col { width: 100% !important; } 
-      .img-product { width: 100% !important;  max-width: none !important;} 
+      .img-3col { width: 100% !important; } /* 2COL | 3COL | now both stacked as single col so their img widths need to be consistent */
+      .img-product { width: 100% !important;  max-width: none !important;} /* 3PID | 4PID | img-product also no longer inset/padded so module edges align with 2COL & 3COL max-width: none is optional depending onwherther you want pids to retain original size or scale for mobile; */
 
       .mod-3pid .inner-pad,
-      .mod-4pid .inner-pad { padding-left: 0 !important;padding-right: 0 !important; }  
+      .mod-4pid .inner-pad { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | restore/remove padding on container...  */ 
       .mod-3pid .content-pad,
-      .mod-4pid .content-pad { padding-left: 10px !important;padding-right: 10px !important; } 
+      .mod-4pid .content-pad { padding-left: 10px !important;padding-right: 10px !important; } /* 3PID | 4PID | restore/apply content-padding on individual columns. Padding was set on inner wrapper table not content for 3PID & 4PIDs so pids don't have to get too small - padding at orange level not green level  as per 2COL and 3COL */
       .product-title,
       .product-text, 
-      .product-price { padding-left: 0 !important;padding-right: 0 !important; } 
-    }
-     
-    @media only screen and (max-width: 455px) {
-      .container-pad { padding-left: 2.413793103448% !important; padding-right: 2.413793103448% !important; }  
-      u + .body .wrapper { width:100% !important; width:100vw !important;}  
+      .product-price { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | remove excess product padding */
     }
 
-     
+    /*  BREAKPOINT 3 | 
+    --------------------------------------------------------------------------- */ 
+    @media only screen and (max-width: 455px) {
+      .container-pad { padding-left: 2.413793103448% !important; padding-right: 2.413793103448% !important; }  /* ALL | reset (decrease) pad for small screen */
+      u + .body .wrapper { width:100% !important; width:100vw !important;} /* Gmail Fix */ 
+    }
+
+    /*  BREAKPOINT 4 | Quarter-width Columns stack
+    --------------------------------------------------------------------------- */ 
     @media only screen and (max-width: 340px) {
       .div-3col-pids,  
-      .div-4col-pids { width: 100% !important; min-width: 0 !important; }  
+      .div-4col-pids { width: 100% !important; min-width: 0 !important; }  /* 3PID | 4PID |  For small screen create single column of pids  */
     }
   </style>
 
   <style type="text/css">
-     
+    /*
+    |--------------------------------------------------------------------------
+    | TESTING 
+    |-------------------------------------------------------------------------- 
+    | 
+    */ 
     table tr td {background-color:yellow !important;}
     table tr td table tr td {background-color:pink !important;}
     table tr td table tr td table tr td {background-color:orange !important;}
