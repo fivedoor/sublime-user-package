@@ -292,46 +292,46 @@
     .center .container-pad { text-align: center!important;}
     .width-100percent, 
     .width-100percent-OL { width: 100% !important;} /* inline width-100percent-OL for non-hybrid build */
+    .inner-container,
     .max-width-none { max-width: none !important; }
 
     .div-half-width { width: 100% !important; max-width: 50% !important; } /* 3COL | 2COL | 4PID | 3COL ---> 2COL |now 2 half-width fluid columns */
-    .img-3col-width { width: 95.3125% !important; }  /* 3COL | match 3COL image size with 2COL for consistent scaling */
-   
     .div-4col-pids { width: 50% !important; max-width: none !important; }  /* 4PID | set 2 half-width fluid columns */
     .div-3col-pids { width: 33.333% !important; min-width: 0 !important; max-width: none !important; }  /*  3PID | set fluid columns */
     .mod-3pid .inner-container { width: 76.5% !important;}  /* set to fluid so container scales relative to 4pids - thought it would be 75% but by trial and error 76.5% means images scale relative */
+    
+    .img-2col, 
+    .img-3col { width: 95.3125% !important; max-width: none !important; }  /* 3COL | match 3COL image size with 2COL for consistent scaling */
    
-    /* Harrys */ 
-    .hero { padding-top: 30px  !important;}
-    .h3 {text-align: left !important;}
+    .hero { padding-top: 30px  !important;}  /* Harrys */ 
+    .h3 {text-align: left !important;}     /* Harrys */ 
   }
 
 
   /*  BREAKPOINT 2 | 2COL ---> 1COL | Width you want 2COL to stack 
   --------------------------------------------------------------------------- */ 
   @media only screen and (max-width: 520px) { 
+    .container-pad {  padding-left: 5% !important;padding-right: 5% !important; }  /* ALL | increase container padding when stacking so images aren't huge */
+
     .div-half-width { width: 100% !important; max-width: none !important; } /* 2COL | 3COL | 4PID | stack 2COL & 3COL & 4PID to single columns at 2nd breakpoint */
     .mod-3pid .inner-container { width: 100% !important; max-width: none !important; } /* 3PID | now full width container... */ 
     .div-3col-pids { width: 50% !important; max-width: none !important; }  /* 3PID | 3 half-width fluid pids... */ 
     .column-three.div-3col-pids { display: block !important; } /* 3PID | center align third pid below other 2pids */
-
-    .img-2col-width, 
-    .img-3col-width { width: 100% !important; } /* 2COL | 3COL | now both stacked as single col so their img widths need to be consistent */
-    .img-product { width: 100% !important; } /* 3PID | 4PID | img-product also no longer inset/padded so module edges align with 2COL & 3COL */
-    
     .float-l { float: left; }  /* 3COL | 3PID | 4PID | required for gmail app */
     .float-r { float: right; } /* 3COL | 3PID | 4PID | required for gmail app */
-   
     .product-table { max-width: none !important; } /* 3PID | 4PID | enable 2 column stacking | also overide "float: right" on third 3PID column with float: none - jh removed this as not sure is necessary? */
+    
+    .img-2col, 
+    .img-3col { width: 100% !important; } /* 2COL | 3COL | now both stacked as single col so their img widths need to be consistent */
+    .img-product { width: 100% !important;  max-width: none !important;} /* 3PID | 4PID | img-product also no longer inset/padded so module edges align with 2COL & 3COL max-width: none is optional depending onwherther you want pids to retain original size or scale for mobile; */
+ 
     .mod-3pid .inner-pad,
     .mod-4pid .inner-pad { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | restore/remove padding on container...  */ 
     .mod-3pid .content-pad,
     .mod-4pid .content-pad { padding-left: 10px !important;padding-right: 10px !important; } /* 3PID | 4PID | restore/apply content-padding on individual columns. Padding was set on inner wrapper table not content for 3PID & 4PIDs so pids don't have to get too small - padding at orange level not green level  as per 2COL and 3COL */
-    .prod-title, 
-    .prod-text, 
-    .prod-price { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | get rid of excess product padding */
-
-    .container-pad {  padding-left: 5% !important;padding-right: 5% !important; }  /* ALL | increase container padding when stacking so images aren't huge */
+    .product-title,
+    .product-text, 
+    .product-price { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | remove excess product padding */
   }
 
   /*  BREAKPOINT 3 | 
@@ -499,7 +499,7 @@ table tr td {background-color:yellow !important;}
                 <!-- container-open end -->
 
                 <!-- 2 UnEven Columns : BEGIN -->
-                <!-- 552 | 200 | content-pad 10|10 | 180 | image-inset 6|6 | 168 || 352 |  -->
+                <!-- 552 | 200 | content-pad 10|10 | 180 |  image-inset 6|6 | 168 || 352 |  -->
                 <tr class="mod-2col-ltr">
                   <td class="container-pad" bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="width: 100%;background-color: #ffffff;padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;">
                     <!--[if (gte mso 9)|(IE)]>
@@ -507,7 +507,7 @@ table tr td {background-color:yellow !important;}
                         <tr>
                           <td align="center" valign="top" width="552" style="width: 552px;">
                           <![endif]-->
-                          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:552px;width: 100%;">
+                          <table class="inner-container" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:552px;width: 100%;">
                             <tr>
                               <td class="inner-pad" bgcolor="#ffffff" align="center" style="font-size: 0;text-align: center;padding: 9px 0;">
                                 <!--[if (gte mso 9)|(IE)]>
@@ -608,7 +608,7 @@ table tr td {background-color:yellow !important;}
                 <!-- container-open end -->
 
                 <!-- 2 Uneven Columns : BEGIN -->
-                <!-- 552 | 200 | content-pad 10|10 | 180 | image-inset 6|6 | 168 || 352 |  -->
+                <!-- 552 | 200 | content-pad 10|10 | 180 |  image-inset 6|6 | 168 || 352 |  -->
                 <tr class="mod-2col-rtl">
                   <td class="container-pad" dir="rtl" bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="width: 100%;background-color: #ffffff;padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;">
                     <!--[if (gte mso 9)|(IE)]>
@@ -616,7 +616,7 @@ table tr td {background-color:yellow !important;}
                         <tr>
                           <td align="center" valign="top" width="552" style="width: 552px;">
                           <![endif]-->
-                          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:552px;width: 100%;">
+                          <table class="inner-container" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:552px;width: 100%;">
                             <tr>
                               <td class="inner-pad" bgcolor="#ffffff" align="center" style="font-size: 0;text-align: center;padding: 9px 0;">
                                 <!--[if (gte mso 9)|(IE)]>
@@ -729,7 +729,7 @@ table tr td {background-color:yellow !important;}
                         <tr>
                           <td align="center" valign="top" width="552" style="width: 552px;">
                           <![endif]-->
-                          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:552px;width: 100%;">
+                          <table class="inner-container" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:552px;width: 100%;">
                             <tr>
                               <td class="inner-pad" bgcolor="#ffffff" align="center" style="font-size: 0;text-align: center;padding: 9px 0;">
                                 <!--[if (gte mso 9)|(IE)]>
@@ -744,7 +744,7 @@ table tr td {background-color:yellow !important;}
                                               <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#ffffff" style="color: #000000; font-family: sans-serif;width: 100%;">
                                                 <tr>
                                                   <td align="center" valign="top" width="100%" style="width:100%">
-                                                    <a href="######"" target="_blank"><img class="img-2col-width" src="https://via.placeholder.com/620" width="244" style="margin:0; padding:0; border:none; display:block;max-width: 244px;width:95.3125%" border="0" alt=""></a></td>
+                                                    <a href="######"" target="_blank"><img class="img-2col" src="https://via.placeholder.com/620" width="244" style="margin:0; padding:0; border:none; display:block;max-width: 244px;width:95.3125%" border="0" alt=""></a></td>
                                                 </tr>
                                                 <tr>
                                                   <td align="center" style="line-height: 23px; padding-top: 10px;"><a href="#######" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:23px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">HILLIER BARTLEY </a></td>
@@ -783,7 +783,7 @@ table tr td {background-color:yellow !important;}
                                               <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#ffffff" style="color: #000000; font-family: sans-serif;width: 100%;">
                                                 <tr>
                                                   <td align="center" valign="top" width="100%" style="width:100%">
-                                                    <a href="######"" target="_blank"><img class="img-2col-width" src="https://via.placeholder.com/620" width="244" style="margin:0; padding:0; border:none; display:block;max-width: 244px;width:95.3125%" border="0" alt=""></a></td>
+                                                    <a href="######"" target="_blank"><img class="img-2col" src="https://via.placeholder.com/620" width="244" style="margin:0; padding:0; border:none; display:block;max-width: 244px;width:95.3125%" border="0" alt=""></a></td>
                                                 </tr>
                                                 <tr>
                                                   <td align="center" style="line-height: 23px; padding-top: 10px;"><a href="#######" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:23px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">HILLIER BARTLEY </a></td>
@@ -856,14 +856,14 @@ table tr td {background-color:yellow !important;}
          
                 <!-- 3 COL start -->
                  <!-- 552 | 184 | content-pad 10|10 | 164 | image-inset 6|6 | 152 -->
-                <tr class="mod-3pid">
+                <tr class="mod-3col">
                   <td class="container-pad" align="center" height="100%" valign="top" width="100%" style="padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;width:100%;background-color: #ffffff" bgcolor="#ffffff">
                     <!--[if (gte mso 9)|(IE)]>
                       <table align="center" border="0" cellspacing="0" cellpadding="0" width="552" style="width:552px">
                         <tr>
                           <td align="center" valign="top" width="552" style="width:552px">
                           <![endif]-->
-                          <table class="max-width-none width-100percent" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:552px;width:100%">
+                          <table class="inner-container" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:552px;width:100%">
                             <tr>
                               <td class="inner-pad"  align="center" valign="top" style="font-size:0;padding: 9px 0;" >
                                 <!--[if (gte mso 9)|(IE)]>
@@ -879,7 +879,7 @@ table tr td {background-color:yellow !important;}
                                               <table class="max-width-none" align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:164px;width:100%">
                                                 <tr>
                                                   <td align="center" valign="top" width="100%" style="width:100%">
-                                                    <a href="#LINK" target="_blank"><img class="img-3col-width" src="https://via.placeholder.com/400" width="152" style="margin:0; padding:0; border:none; display:block;max-width:152px;width:92.682926829268%" border="0" alt=""></a>
+                                                    <a href="#LINK" target="_blank"><img class="img-3col" src="https://via.placeholder.com/400" width="152" style="margin:0; padding:0; border:none; display:block;max-width:152px;width:92.682926829268%" border="0" alt=""></a>
                                                   </td>
                                                 </tr>
                                                 <tr>
@@ -907,7 +907,7 @@ table tr td {background-color:yellow !important;}
                                               <table class="max-width-none" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:164px;width:100%">
                                                 <tr>
                                                   <td align="center" valign="top" width="100%" style="width:100%">
-                                                    <a href="#LINK" target="_blank"><img class="img-3col-width" src="https://via.placeholder.com/400" width="152" style="margin:0; padding:0; border:none; display:block;max-width:152px;width:92.682926829268%" border="0" alt=""></a>
+                                                    <a href="#LINK" target="_blank"><img class="img-3col" src="https://via.placeholder.com/400" width="152" style="margin:0; padding:0; border:none; display:block;max-width:152px;width:92.682926829268%" border="0" alt=""></a>
                                                   </td>
                                                 </tr>
                                                 <tr>
@@ -935,7 +935,7 @@ table tr td {background-color:yellow !important;}
                                               <table class="max-width-none" align="right" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:164px; float: right;width:100%">
                                                 <tr>
                                                   <td align="center" valign="top" width="100%" style="width:100%">
-                                                    <a href="#LINK" target="_blank"><img class="img-3col-width" src="https://via.placeholder.com/400" width="152" style="margin:0; padding:0; border:none; display:block;max-width:152px;width:92.682926829268%" border="0" alt=""></a>
+                                                    <a href="#LINK" target="_blank"><img class="img-3col" src="https://via.placeholder.com/400" width="152" style="margin:0; padding:0; border:none; display:block;max-width:152px;width:92.682926829268%" border="0" alt=""></a>
                                                   </td>
                                                 </tr>
                                                 <tr>
@@ -1005,7 +1005,7 @@ table tr td {background-color:yellow !important;}
                         <tr>
                           <td align="center" valign="top" width="552" style="width:552px">
                           <![endif]-->
-                          <table class="max-width-none width-100percent" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:552px;" >
+                          <table class="inner-container" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:552px;" >
                             <tr>
                               <td class="inner-pad" align="center" valign="top" style="font-size:0;padding: 9px 10px;" >
                                 <!--[if (gte mso 9)|(IE)]>
@@ -1034,15 +1034,15 @@ table tr td {background-color:yellow !important;}
                                                                 </td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">
+                                                                <td class="product-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">
                                                                 SANDRO</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px;" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none; ">
+                                                                <td class="product-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px;" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none; ">
                                                                 Lightweight Printed&nbsp;Shirt</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">
+                                                                <td class="product-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">
                                                                 £105</a></td>
                                                               </tr>
                                                             </table>
@@ -1065,14 +1065,14 @@ table tr td {background-color:yellow !important;}
                                                                 </td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">MACK</a></td>
+                                                                <td class="product-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">MACK</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">
+                                                                <td class="product-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">
                                                                 Bonded-Cotton Rain&nbsp;Coat</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-price" align="center" style="line-height: 18px;padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">
+                                                                <td class="product-price" align="center" style="line-height: 18px;padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">
                                                                 £310</a></td>
                                                               </tr>
                                                             </table>
@@ -1113,13 +1113,13 @@ table tr td {background-color:yellow !important;}
                                                                 </td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">GIVENCHY</a></td>
+                                                                <td class="product-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">GIVENCHY</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">L.C. Leather Briefcase</a></td>
+                                                                <td class="product-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">L.C. Leather Briefcase</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£663</a></td>
+                                                                <td class="product-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£663</a></td>
                                                               </tr>
                                                             </table>
                                                           </td>
@@ -1141,13 +1141,13 @@ table tr td {background-color:yellow !important;}
                                                                 </td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-title" align="center" style="line-height: 18px; padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">ETRO</a></td>
+                                                                <td class="product-title" align="center" style="line-height: 18px; padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">ETRO</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">Slim-fit Jeans</a></td>
+                                                                <td class="product-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">Slim-fit Jeans</a></td>
                                                               </tr>
                                                               <tr>
-                                                                <td class="prod-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£663</a></td>
+                                                                <td class="product-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£663</a></td>
                                                               </tr>
                                                             </table>
                                                           </td>
@@ -1236,13 +1236,13 @@ table tr td {background-color:yellow !important;}
                                             </td>
                                           </tr>
                                           <tr>
-                                            <td class="prod-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">GUCCI</a></td>
+                                            <td class="product-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">GUCCI</a></td>
                                           </tr>
                                           <tr>
-                                            <td class="prod-text" align="center" style="line-height: 16px;  padding: 2px 15px  2px 15px;" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none; ">Check Woven-cotton Shirt</a></td>
+                                            <td class="product-text" align="center" style="line-height: 16px;  padding: 2px 15px  2px 15px;" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none; ">Check Woven-cotton Shirt</a></td>
                                           </tr>
                                           <tr>
-                                            <td class="prod-price" align="center" style="line-height: 18px; padding: 2px 15px  24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£240</a></td>
+                                            <td class="product-price" align="center" style="line-height: 18px; padding: 2px 15px  24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£240</a></td>
                                           </tr>
                                         </table>
                                       </td>
@@ -1264,13 +1264,13 @@ table tr td {background-color:yellow !important;}
                                                       </td>
                                                     </tr>
                                                     <tr>
-                                                      <td class="prod-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">MAISON MARTIN MARGIELA</a></td>
+                                                      <td class="product-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px" ><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">MAISON MARTIN MARGIELA</a></td>
                                                     </tr>
                                                     <tr>
-                                                      <td class="prod-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">Quilted Wool Jacket</a></td>
+                                                      <td class="product-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">Quilted Wool Jacket</a></td>
                                                     </tr>
                                                     <tr>
-                                                      <td class="prod-price" align="center" style="line-height: 18px;padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£110</a></td>
+                                                      <td class="product-price" align="center" style="line-height: 18px;padding: 2px 15px 24px 15px" ><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£110</a></td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -1292,13 +1292,13 @@ table tr td {background-color:yellow !important;}
                                             </td>
                                           </tr>
                                           <tr>
-                                            <td class="prod-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px"><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">LANVIN</a></td>
+                                            <td class="product-title" align="center" style="line-height: 18px;  padding: 15px 15px 0 15px"><a href="#LINK" target="_blank" style="font-family:arial, serif; font-weight: bold; color:#2b2b2b; font-size:12px; line-height:16px; text-transform:uppercase; text-decoration:none; letter-spacing: 1px; ">LANVIN</a></td>
                                           </tr>
                                           <tr>
-                                            <td class="prod-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px"><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">Textured-Leather Sneakers</a></td>
+                                            <td class="product-text" align="center" style="line-height: 16px;  padding: 2px 15px 2px 15px"><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:13px; line-height:16px; text-decoration:none;">Textured-Leather Sneakers</a></td>
                                           </tr>
                                           <tr>
-                                            <td class="prod-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px"><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£330</a></td>
+                                            <td class="product-price" align="center" style="line-height: 18px; padding: 2px 15px 24px 15px"><a href="#LINK" target="_blank" style="font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; color:#2b2b2b; font-size:15px; line-height:16px; text-decoration:none; ">£330</a></td>
                                           </tr>
                                         </table>
                                       </td>
@@ -1468,12 +1468,11 @@ table tr td {background-color:yellow !important;}
 
     </body></html>
 
+
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	 <tabTrigger>em-hybrid-template</tabTrigger> 
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	 <scope>text.html</scope> 
      <description>html|email|hybrid|template</description>
-</snippet>
-
 </snippet>
