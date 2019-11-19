@@ -277,7 +277,7 @@
       .div-half-width { width: 100% !important; max-width: 50% !important; } /* 3COL | 2COL | 4PID | 3COL ---> 2COL |now 2 half-width fluid columns */
       .div-4col-pids { width: 50% !important; max-width: none !important; }  /* 4PID | set 2 half-width fluid columns */
       .div-3col-pids { width: 33.333% !important; min-width: 0 !important; max-width: none !important; }  /*  3PID | set fluid columns */
-      .mod-3pid .inner-container { width: 76.5% !important;}  /* set to fluid so container scales relative to 4pids - thought it would be 75% but by trial and error 76.5% means images scale relative */
+      .mod-3pid-h .inner-container { width: 76.5% !important;}  /* set to fluid so container scales relative to 4pids - thought it would be 75% but by trial and error 76.5% means images scale relative */
 
       .img-2col, 
       .img-3col { width: 95.3125% !important; max-width: none !important; }  /* 3COL | match 3COL image size with 2COL for consistent scaling */
@@ -293,7 +293,7 @@
       .container-pad {  padding-left: 5% !important;padding-right: 5% !important; }  /* ALL | increase container padding when stacking so images aren't huge */
 
       .div-half-width { width: 100% !important; max-width: none !important; } /* 2COL | 3COL | 4PID | stack 2COL & 3COL & 4PID to single columns at 2nd breakpoint */
-      .mod-3pid .inner-container { width: 100% !important; max-width: none !important; } /* 3PID | now full width container... */ 
+      .mod-3pid-h .inner-container { width: 100% !important; max-width: none !important; } /* 3PID | now full width container... */ 
       .div-3col-pids { width: 50% !important; max-width: none !important; }  /* 3PID | 3 half-width fluid pids... */ 
       .column-three.div-3col-pids { display: block !important; } /* 3PID | center align third pid below other 2pids */
       .float-l { float: left; }  /* 3COL | 3PID | 4PID | required for gmail app */
@@ -304,10 +304,10 @@
       .img-3col { width: 100% !important; } /* 2COL | 3COL | now both stacked as single col so their img widths need to be consistent */
       .img-product { width: 100% !important;  max-width: none !important;} /* 3PID | 4PID | img-product also no longer inset/padded so module edges align with 2COL & 3COL max-width: none is optional depending onwherther you want pids to retain original size or scale for mobile; */
 
-      .mod-3pid .inner-pad,
-      .mod-4pid .inner-pad { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | restore/remove padding on container...  */ 
-      .mod-3pid .content-pad,
-      .mod-4pid .content-pad { padding-left: 10px !important;padding-right: 10px !important; } /* 3PID | 4PID | restore/apply content-padding on individual columns. Padding was set on inner wrapper table not content for 3PID & 4PIDs so pids don't have to get too small - padding at orange level not green level  as per 2COL and 3COL */
+      .mod-3pid-h .inner-pad,
+      .mod-4pid-h .inner-pad { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | restore/remove padding on container...  */ 
+      .mod-pid-h .content-pad,
+      .mod-4pid-h .content-pad { padding-left: 10px !important;padding-right: 10px !important; } /* 3PID | 4PID | restore/apply content-padding on individual columns. Padding was set on inner wrapper table not content for 3PID & 4PIDs so pids don't have to get too small - padding at orange level not green level  as per 2COL and 3COL */
       .product-title,
       .product-text, 
       .product-price { padding-left: 0 !important;padding-right: 0 !important; } /* 3PID | 4PID | remove excess product padding */
@@ -476,7 +476,7 @@
 
                 <!-- 2 UnEven Columns : BEGIN -->
                 <!-- 552 | 200 | content-pad 10|10 | 180 |  image-inset 6|6 | 168 || 352 |  -->
-                <tr class="mod-2col-ltr">
+                <tr class="mod-2col-ltr-h">
                   <td class="container-pad" bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="width: 100%;background-color: #ffffff;padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;">
                     <!--[if (gte mso 9)|(IE)]>
                       <table border="0" cellspacing="0" cellpadding="0" align="center" width="552" style="width: 552px;">
@@ -585,7 +585,7 @@
 
                   <!-- 2 Uneven Columns : BEGIN -->
                   <!-- 552 | 200 | content-pad 10|10 | 180 |  image-inset 6|6 | 168 || 352 |  -->
-                  <tr class="mod-2col-rtl">
+                  <tr class="mod-2col-rtl-h">
                     <td class="container-pad" dir="rtl" bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="width: 100%;background-color: #ffffff;padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;">
                       <!--[if (gte mso 9)|(IE)]>
                         <table border="0" cellspacing="0" cellpadding="0" align="center" width="552" style="width: 552px;">
@@ -698,7 +698,7 @@
 
                     <!-- 2 Even Columns : BEGIN -->
                     <!-- 552 | 276 | content-pad 10|10 | 256 | image-inset 6|6 | 244 -->
-                    <tr class="mod-2col">
+                    <tr class="mod-2col-h">
                       <td class="container-pad" bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="width: 100%;background-color: #ffffff;padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;width:100%">
                         <!--[if (gte mso 9)|(IE)]>
                           <table border="0" cellspacing="0" cellpadding="0" align="center" width="552" style="width: 552px;">
@@ -832,7 +832,7 @@
 
                         <!-- 3 COL start -->
                         <!-- 552 | 184 | content-pad 10|10 | 164 | image-inset 6|6 | 152 -->
-                        <tr class="mod-3col">
+                        <tr class="mod-3col-h">
                           <td class="container-pad" align="center" height="100%" valign="top" width="100%" style="padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;width:100%;background-color: #ffffff" bgcolor="#ffffff">
                             <!--[if (gte mso 9)|(IE)]>
                               <table align="center" border="0" cellspacing="0" cellpadding="0" width="552" style="width:552px">
@@ -974,7 +974,7 @@
                         <!-- 4 PIDs  START  -->
                         <!-- 552 | content-pad 10|10 | 532 | 133 | image-inset 6|6 | 121 -->
 
-                        <tr class="mod-4pid">
+                        <tr class="mod-4pid-h">
                           <td class="container-pad" align="center" height="100%" valign="top" width="100%" style="padding-left: 2.413793103448%;padding-right: 2.413793103448%;;width:100%;background-color: #ffffff" bgcolor="#ffffff">
                             <!--[if (gte mso 9)|(IE)]>
                               <table align="center" border="0" cellspacing="0" cellpadding="0" width="552" style="width:552px">
@@ -1186,7 +1186,7 @@
                         <!-- 3 PIDs start -->
                         <!-- 552 | 419 | content-pad 10|10 | 399 | 133 | image-inset 6|6 | 121 -->
 
-                        <tr class="mod-3pid">
+                        <tr class="mod-3pid-h">
                           <td class="container-pad" align="center" height="100%" valign="top" width="100%" style="padding-top: 5px;padding-bottom: 7px;padding-left: 2.413793103448%;padding-right: 2.413793103448%;width:100%;background-color: #ffffff" bgcolor="#ffffff">
                             <!--[if (gte mso 9)|(IE)]>
                               <table align="center" border="0" cellspacing="0" cellpadding="0" width="414" style="width:414px">
