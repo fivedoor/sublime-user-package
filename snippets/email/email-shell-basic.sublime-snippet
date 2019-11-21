@@ -3,7 +3,9 @@
 <!---
     REGEX TO REMOVE COMMENTS
     ======================== 
-    (?s)<!---(?!<!)[^\[>].*?-->|/\*.+?\*/
+    Searching for additional - and * in comments to remove. Comments without double - and * should be preserved
+
+    (?s)<!---(?!<!)[^\[>].*?-->|/\*\*.+?\*/
 
     <!---
         ========================== NOTES ==========================
@@ -11,9 +13,9 @@
         VARIABLES
         =========
         ${1:title}
-        ${2:contentWidth}
-        #${3:bgColor}
-        ${4:content-pad}
+        ${2:container-width}
+        ${3:bgColor}
+        ${4:container-pad}
 
         WIDTHS
         ======
@@ -68,40 +70,40 @@
         | RESETS 
         |-------------------------------------------------------------------------- 
         */
-        .ReadMsgBody { /* Force Outlook.com  to display emails at full width */
+        .ReadMsgBody { /** Force Outlook.com  to display emails at full width */
             width: 100%; 
-            background-color: #ffffff; /* or whatever your want */
+            background-color: #ffffff; /** or whatever your want */
         } 
-        .ExternalClass { /* Force Outlook.com  to display emails at full width */
+        .ExternalClass { /** Force Outlook.com  to display emails at full width */
             width: 100%; 
-            background-color: #ffffff; /* or whatever your want */
+            background-color: #ffffff; /** or whatever your want */
         }
         .ExternalClass p, 
         .ExternalClass span, 
         .ExternalClass font, 
         .ExternalClass td,
-        .ExternalClass div { /* Overwrite Outlook.com’s Embedded CSS  |  http://www.emailonacid.com/forum/viewthread/43/ */
+        .ExternalClass div { /** Overwrite Outlook.com’s Embedded CSS  |  http://www.emailonacid.com/forum/viewthread/43/ */
             line-height: 100%;
         } 
-        body { /* Webkit and Windows Mobile Text Size Adjustment. */ /* Much like in OSX and iOS, small text is also resized on Windows Mobile. *//* The same vendor-prefix-based CSS property is used here, just with the ms vendor prefix instead of the webkit one. */
+        body { /** Webkit and Windows Mobile Text Size Adjustment. | Much like in OSX and iOS, small text is also resized on Windows Mobile. |  The same vendor-prefix-based CSS property is used here, just with the ms vendor prefix instead of the webkit one. */
             width: 100%; 
-            background-color: #ffffff; /* or whatever your want */
+            background-color: #ffffff; /** or whatever your want */
             margin:0; 
             padding:0; 
         }  
-        body, /* Remove spacing around Outlook 07, 10 tables. *//* More info : http://www.campaignmonitor.com/blog/post/3694/removing-spacing-from-around-tables-in-outlook-2007-and-2010/ *//* Bring inline: Yes */
+        body, /** Remove spacing around Outlook 07, 10 tables. |  More info : http://www.campaignmonitor.com/blog/post/3694/removing-spacing-from-around-tables-in-outlook-2007-and-2010/ |  Bring inline: Yes */
         table,
         td,
         a { 
             -webkit-text-size-adjust: 100%; 
             -ms-text-size-adjust: 100%; 
         } 
-        table, /* Works to help ie properly resize images in IE. (if you are resizing them using the width and height attributes) */
+        table, /** Works to help ie properly resize images in IE. (if you are resizing them using the width and height attributes) */
         td {
             mso-table-lspace: 0pt; 
             mso-table-rspace: 0pt; 
         } 
-        p { /* Yahoo paragraph fix: removes the proper spacing or the paragraph (p) tag.  | To correct we set the top/bottom margin to 1em in the head of the document. Simple fix with little effect on other styling.  |  NOTE: It is also common to use two breaks instead of the paragraph tag but I think this way is cleaner and more semantic. NOTE: This example recommends 1em.  |  More info on setting web defaults:  | http://www.w3.org/TR/CSS21/sample.html or http://meiert.com/en/blog/20070922/user-agent-style-sheets/  |  Bring inline: Yes. */
+        p { /** Yahoo paragraph fix: removes the proper spacing or the paragraph (p) tag.  | To correct we set the top/bottom margin to 1em in the head of the document. Simple fix with little effect on other styling.  |  NOTE: It is also common to use two breaks instead of the paragraph tag but I think this way is cleaner and more semantic. NOTE: This example recommends 1em.  |  More info on setting web defaults:  | http://www.w3.org/TR/CSS21/sample.html or http://meiert.com/en/blog/20070922/user-agent-style-sheets/  |  Bring inline: Yes. */
             margin: 1em 0;
         }
         img { 
@@ -114,7 +116,7 @@
             outline: none;
             text-decoration: none;
         } 
-        table { /* Outlook 07, 10 Padding issue fix  |  "newer" versions of Outlook add some padding around table cells potentially throwing off your perfectly pixeled table.  The issue can cause added space and also throw off borders completely.  |  Use this fix in your header or inline to safely fix your table woes.  |  More info: http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells/  | http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07/  |  Bring inline: No. */
+        table { /** Outlook 07, 10 Padding issue fix  |  "newer" versions of Outlook add some padding around table cells potentially throwing off your perfectly pixeled table.  The issue can cause added space and also throw off borders completely.  |  Use this fix in your header or inline to safely fix your table woes.  |  More info: http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells/  | http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07/  |  Bring inline: No. */
         border-collapse: collapse !important; 
         border-spacing: 0; 
         } 
@@ -128,13 +130,13 @@
             margin: 0;
             padding: 0;
         } 
-        div[style*="margin: 16px 0"] { /*  Android Center Fix */ /* https://litmus.com/community/snippets/57-android-4-4-center-hack?utm_campaign=bestpractices_snippets&utm_source=litmusblog&utm_medium=blog | https://litmus.com/community/code/4194-why-is-email-not-centered-on-android-4-4 | https://blog.jmwhite.co.uk/2015/09/19/revealing-why-emails-appear-off-centre-in-android-4-4-kitkat/ | https://emails.hteumeuleu.com/today-i-learned-about-mso-generic-font-family-85b0e4703079 */
+        div[style*="margin: 16px 0"] { /** Android Center Fix |  https://litmus.com/community/snippets/57-android-4-4-center-hack?utm_campaign=bestpractices_snippets&utm_source=litmusblog&utm_medium=blog | https://litmus.com/community/code/4194-why-is-email-not-centered-on-android-4-4 | https://blog.jmwhite.co.uk/2015/09/19/revealing-why-emails-appear-off-centre-in-android-4-4-kitkat/ | https://emails.hteumeuleu.com/today-i-learned-about-mso-generic-font-family-85b0e4703079 */
             margin: 0 auto !important;
         } 
-        body { /*  Android Center Fix 2  |  https://litmus.com/community/code/4432-android-4-4-still-not-centering */
+        body { /** Android Center Fix 2  |  https://litmus.com/community/code/4432-android-4-4-still-not-centering */
             margin: 0 auto !important;
         }  
-        a[x-apple-data-detectors] {  /* Remove Blue Links Apple  |  https://litmus.com/community/snippets/8-remove-blue-links-on-apple-devices */
+        a[x-apple-data-detectors] {  /** Remove Blue Links Apple  |  https://litmus.com/community/snippets/8-remove-blue-links-on-apple-devices */
             color: inherit !important;
             text-decoration: none !important;
             font-size: inherit !important;
@@ -143,25 +145,25 @@
             line-height: inherit !important;
         } 
         a[href^="tel"],
-        a[href^="sms"] { /* Remove Mobile styles | target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers. Use these two blocks of code to "unstyle" any numbers that may be linked. The second block gives you a class to apply with a span tag to the numbers you would like linked and styled. | Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/. */
+        a[href^="sms"] { /** Remove Mobile styles | target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers. Use these two blocks of code to "unstyle" any numbers that may be linked. The second block gives you a class to apply with a span tag to the numbers you would like linked and styled. | Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/. */
             text-decoration: none;
-            color: #30383d; /* or whatever your want */
+            color: #30383d; /** or whatever your want */
             pointer-events: none;
             cursor: default;
         }  
         .mobile_link a[href^="tel"],
-        .mobile_link a[href^="sms"] {   /* Remove Mobile styles */
+        .mobile_link a[href^="sms"] {  /** Remove Mobile styles */
             text-decoration: default;
-            color: #30383d !important; /* or whatever your want */
+            color: #30383d !important; /** or whatever your want */
             pointer-events: auto;
             cursor: default;
         }
-        #outlook a {     /* Force Outlook to provide a "view in browser" menu link. */
+        #outlook a {     /** Force Outlook to provide a "view in browser" menu link. */
             padding:0;
         } 
         .black a {
             text-decoration: none;
-            color: #30383d; /* or whatever your want */
+            color: #30383d; /** or whatever your want */
         }
     </style>
 
@@ -171,12 +173,12 @@
         | MODULE CSS 
         |-------------------------------------------------------------------------- 
         */
-        /* IE/MSO */ 
-        .ie-target td.content-pad,
-        .mso-target td.content-pad { padding-left: {4:content-pad}px !important; padding-right: {4:content-pad}px !important; } /* define left/right padding in px if required with !important; */
+        /** IE/MSO */ 
+        .ie-target td.container-pad,
+        .mso-target td.container-pad { padding-left: ${4:container-pad}px !important; padding-right: ${4:container-pad}px !important; } /** define left/right padding in px if required with !important; */
         .ie-target .fallback-font,
         .mso-target .fallback-font { font-family: arial, sans-serif !important; } /* define fallback font if required */
-        .width-100percent-OL { width: 100% !important; } /* Need to target tables defined with a percentage width that are nested in OL only conditional table or td with fixed widths and make them 100% width within those tables/td */
+        .width-100percent-OL { width: 100% !important; } /** Need to target tables defined with a percentage width that are nested in OL only conditional table or td with fixed widths and make them 100% width within those tables/td */
     </style>
 
     <style type="text/css">
@@ -195,11 +197,11 @@
                 font-size: 12px !important; 
                 display: block !important; 
             }
-            .content-width {
-                width:${2:contentWidth} !important; /* set content-width e.g. 680px or 100% as preferred */
+            .container {
+                width:${2:container-width} !important; /** set content-width e.g. 680px or 100% as preferred */
                 padding:0;
             }
-            .center .content-pad {
+            .center .container-pad {
                 text-align: center!important;
             }
             .width-100percent, 
@@ -208,24 +210,24 @@
             }
             .max-width-none { max-width: none !important; }
 
-            .content-pad { }
+            .container-pad { }
         }
 
         /* MODULE BREAKPOINT 2
         --------------------------------------------------------------------------- */ 
         @media only screen and (max-width: 479px) {
-            .content-width {
+            .container {
                 width:100% !important; 
                 padding:0;
             }
-            .center .content-pad { 
+            .center .container-pad { 
                 text-align: center !important;
             }
-            u + .body .wrapper {  /* Gmail (IOS & Android) Centering & Sizing Reset */
+            u + .body .wrapper {  /** Gmail (IOS & Android) Centering & Sizing Reset */
                 width:100% !important;
                 width:100vw !important;
             }
-            /* NB the above replaced the below options as was working better to make sure text maintained right size in Harry's email | May still need to tap into below for any centering issues  | <body class="body" Set in combination with CSS for targeting gmail | Targets Gmail (IOS & Android) | u ~ div .wrapper {min-width: 100vw;} | Targets Gmail on Android: | div > u ~ div .wrapper {min-width: 100%;} | The div in u ~ div {min-width: 100vw;} is your <body> tag transformed into a div by Gmail. | Apparently, Gmail Android doesn't like it when you use vw to force it to full width, and goes a bit off screen. |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-14991 |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-13503 */
+            /** NB the above replaced the below options as was working better to make sure text maintained right size in Harry's email | May still need to tap into below for any centering issues  | <body class="body" Set in combination with CSS for targeting gmail | Targets Gmail (IOS & Android) | u ~ div .wrapper {min-width: 100vw;} | Targets Gmail on Android: | div > u ~ div .wrapper {min-width: 100%;} | The div in u ~ div {min-width: 100vw;} is your <body> tag transformed into a div by Gmail. | Apparently, Gmail Android doesn't like it when you use vw to force it to full width, and goes a bit off screen. |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-14991 |  https://litmus.com/community/discussions/6950-full-width-on-gmail-app-for-ios#comment-13503 */
         }
     </style>
 
@@ -246,11 +248,11 @@
 </head>
 
 <!--[if IE]>
-<body class="ie-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#eeeeee" style="margin:0;padding:0;min-width:100%;background-color: #eeeeee !important;mso-line-height-rule: exactly;">
+<body class="ie-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#${3:bgColor}" style="margin:0;padding:0;min-width:100%;background-color: #${3:bgColor} !important;mso-line-height-rule: exactly;">
 <![endif]-->
 
 <!--[if (gte mso 9)]>
-<body class="mso-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#eeeeee" style="margin:0;padding:0;min-width:100%;background-color: #eeeeee !important;mso-line-height-rule: exactly;">
+<body class="mso-target" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#${3:bgColor}" style="margin:0;padding:0;min-width:100%;background-color: #${3:bgColor} !important;mso-line-height-rule: exactly;">
 <![endif]-->
 
 <!--[if !(gte mso 9)|!IE]>  <!-- -->
