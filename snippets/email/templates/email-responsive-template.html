@@ -204,8 +204,8 @@
   .ie-target .width-248,
   .mso-target .width-248 { width: 248px !important; }  /* 2COL Banner */
   /* Cellpad */
-  .ie-target td.container-pad,
-  .mso-target td.container-pad { padding-left: 26px !important; padding-right: 26px !important; } /* Px Pad for stability */
+  .ie-target .container td,
+  .mso-target .container td  { padding-left: 26px !important; padding-right: 26px !important; } /* Px Pad for stability */
 </style>
 
 <style type="text/css">
@@ -273,13 +273,14 @@
   .nomob { display: none !important; }
   .showmob { max-height: none !important; font-size: 12px !important; display: block !important; }
   .container { width:100% !important; padding:0;}
-  .center .container-pad { text-align: center!important;} /* 2COL(Text/Text) / 2COL(ImageText/ImageText) / 2COL(Image/Text) */
+  .center td { text-align: center!important;} /* 2COL(Text/Text) / 2COL(ImageText/ImageText) / 2COL(Image/Text) */
   .width-100percent, 
   .width-100percent-OL { width: 100% !important;}
   .max-width-none { max-width: none !important; }
+  .container td {}
   
    /* Harrys */ 
-  .hero { padding-top: 30px  !important;}
+  .mod-1col { padding-top: 30px  !important;}
   .h3 {text-align: left !important;}
   u + .body .wrapper { width:100% !important; width:100vw !important;}
 }
@@ -326,9 +327,9 @@
       <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%">
 
         <!-- Single Column  -->
-        <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px;">
-          <tr class="mod-1col">
-            <td class="container-pad hero" valign="top" bgcolor="#f7f7f7" align="center" style="background-color: #f7f7f7;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+        <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px;">
+          <tr >
+            <td valign="top" bgcolor="#f7f7f7" align="center" style="background-color: #f7f7f7;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
               <!-- Full width image -->
               <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                 <tr>
@@ -375,9 +376,9 @@
 
      
        <!-- 3 Column  -->
-      <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px;">
-        <tr class="mod-3col">
-          <td class="container-pad" style="padding-top: 5px;padding-bottom: 7px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
+      <table class="mod-3col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px;">
+        <tr >
+          <td style="padding-top: 5px;padding-bottom: 7px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
            <!--[if false]> <div style:"display:none;"> <![endif]-->
             <!--[if (gte mso 9) | (IE)]>
               <table align="center" border="0" cellpadding="0" cellspacing="0" width="528" bgcolor="#ffffff" style="width:528px;">
@@ -427,7 +428,7 @@
                       <td style="text-align: left; vertical-align: top; padding:10px 0 10px 0">
                         <table align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffd83c" width="100%" style="width:100%">
                           <tr>
-                            <td class="prod-title fallback-font" align="center" style="line-height: 20px;  padding: 12px 0 10px 0" ><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';font-weight: bold;color: #2f2f2f;font-size:15px;line-height:20px;text-transform:uppercase;text-decoration:none;letter-spacing: 3px;">
+                            <td class="prod-title" align="center" style="line-height: 20px;  padding: 12px 0 10px 0" ><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';font-weight: bold;color: #2f2f2f;font-size:15px;line-height:20px;text-transform:uppercase;text-decoration:none;letter-spacing: 3px;">
                             LEARN</a></td>
                           </tr>
                           <tr>
@@ -436,7 +437,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td class="prod-text fallback-font" align="center" style="line-height: 18px;padding: 20px 16px 21px 16px;" ><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';color: #2f2f2f;font-size: 13px;line-height: 20px;text-decoration:none;max-width: 160px;">
+                            <td class="prod-text" align="center" style="line-height: 18px;padding: 20px 16px 21px 16px;" ><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';color: #2f2f2f;font-size: 13px;line-height: 20px;text-decoration:none;max-width: 160px;">
                             Visit our blog for more instructive articles and&nbsp;tutorials</a></td>
                           </tr>
                         </table>
@@ -466,7 +467,7 @@
                         <td style="text-align: left; vertical-align: top; padding:10px 0 10px 0" width="100%">
                           <table align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00a651" width="100%" style="width:100%">
                             <tr>
-                              <td align="center" style="line-height: 20px;  padding: 12px 0 10px 0" class="prod-title fallback-font"><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';color: #ffffff;font-size:15px;line-height:20px;text-transform:uppercase;text-decoration:none;letter-spacing: 3px;">
+                              <td align="center" style="line-height: 20px;  padding: 12px 0 10px 0" class="prod-title"><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';color: #ffffff;font-size:15px;line-height:20px;text-transform:uppercase;text-decoration:none;letter-spacing: 3px;">
                               BUILD</a></td>
                             </tr>
                             <tr>
@@ -475,7 +476,7 @@
                               </td>
                             </tr>
                             <tr>
-                              <td class="prod-text fallback-font" align="center" style="line-height: 18px;padding: 20px 16px 21px 16px;" ><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';color:#ffffff;font-size: 13px;line-height: 20px;text-decoration:none;max-width: 160px;">
+                              <td class="prod-text" align="center" style="line-height: 18px;padding: 20px 16px 21px 16px;" ><a href="#LINK" target="_blank" style="font-family: arial, sans-serif, 'Lato';color:#ffffff;font-size: 13px;line-height: 20px;text-decoration:none;max-width: 160px;">
                               Build from your data using our sister tool Campaign Builder</a></td>
                             </tr>
                           </table>
@@ -495,9 +496,9 @@
 
 
        <!--  2 Column (Text/Text) -->
-        <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width: 580px">
-          <tr class="mod-2col-txt center" align="left" valign="top">
-            <td class="container-pad" style="padding-top: 7px;padding-bottom: 32px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+        <table class="mod-2col-txt container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width: 580px">
+          <tr class="center" align="left" valign="top">
+            <td style="padding-top: 7px;padding-bottom: 32px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                               
               <!-- Container  -->
               <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="width: 100%">
@@ -567,9 +568,9 @@
       <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%">
 
              <!-- 2 Column (Image Text/Image Text)  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px">
-            <tr class="mod-2col center">
-              <td class="container-pad" style="padding-top: 10px;padding-bottom: 10px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff"  valign="top">
+          <table class="mod-2col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px">
+            <tr class="center">
+              <td  style="padding-top: 10px;padding-bottom: 10px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff"  valign="top">
                  <!--[if false]> <div style:"display:none;"> <![endif]-->
                 <!--[if (gte mso 9) | (IE)]>
                   <table 
@@ -625,11 +626,11 @@
                     </td>
                     <td width="26" style="width:26px" valign="top">
                     <![endif]-->
-                     <!--[if false]> 
-                   </td>
-                  </tr>
-                </table>
-                 <![endif]-->
+                       <!--[if false]> 
+                     </td>
+                    </tr>
+                  </table>
+                   <![endif]-->
                     <table class="width-100percent-OL" align="left" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" width="26" style="width:4.924242424242%">
                       <tr>
                         <td align="center" valign="top" width="100%" height="5" style="margin:0; padding: 0; border:none;width:100%">
@@ -643,10 +644,10 @@
                     </td><td width="251" style="width:251px" valign="top">
                     <![endif]-->
                      <!--[if false]> 
-                   </td>
-                  </tr>
-                </table>
-                 <![endif]-->
+                     </td>
+                    </tr>
+                  </table>
+                   <![endif]-->
                     <table class="width-100percent-OL" width="251" border="0" cellpadding="0" cellspacing="0" align="left" style="width: 47.537878787879%" bgcolor="#AAEE00">
                       <tr>
                         <td align="center" valign="top" width="100%" style="width:100%">
@@ -694,12 +695,12 @@
         <!--/ 2 Column (Image Text/Image Text)  -->
 
           <!-- 2 Column (Image/Text) -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px">
+          <table class="mod-2col-banner container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px">
             <tr>
-              <td class="container-pad" colspan="2" align="left" valign="top" style="padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
+              <td colspan="2" align="left" valign="top" style="padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
             </tr> 
-            <tr class="mod-2col-banner center">
-              <td class="container-pad" style="padding-top: 0;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
+            <tr class="center">
+              <td  style="padding-top: 0;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
                 
 
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#e03030" style="width:100%">
@@ -791,7 +792,7 @@
               </td>
             </tr>
             <tr>
-              <td class="container-pad" colspan="2" align="left" valign="top" style="padding-top: 0;padding-bottom: 26px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
+              <td colspan="2" align="left" valign="top" style="padding-top: 0;padding-bottom: 26px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
             </tr> 
 
           </table>
@@ -806,8 +807,8 @@
       <tr>
         <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%;padding: 0 0 10px 0">
           <!-- Single Column  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
+          <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
+            <tr>
               <td  valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <!-- Full width image -->
@@ -821,9 +822,9 @@
           </table>
           <!-- /Single Column  -->
           <!-- Single Column  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
-              <td class="container-pad" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+          <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
+            <tr>
+              <td valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
                     <td class="h3" align="left" bgcolor="#DEEAF3" valign="top" style="letter-spacing: 0.56px;-webkit-text-size-adjust: none;color: #263645;font-family: Futura, Trebuchet MS, Arial, sans-serif;font-size: 14px;line-height: 24px;padding: 6px 0 6px 0;text-align: center;font-weight: normal;text-decoration: none;width: 100%;text-transform: none;">Gather your shaving supplies. Wash your face with a pebble-size dollop of exfoliating Face&nbsp;Wash to soften stubble for an even more comfortable shave. This is important.</td>
@@ -842,8 +843,8 @@
       <tr>
         <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%;padding: 0 0 10px 0">
           <!-- Single Column  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
+          <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
+            <tr>
               <td valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <!-- Full width image -->
@@ -857,9 +858,9 @@
           </table>
           <!-- /Single Column  -->
           <!-- Single Column  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
-              <td class="container-pad" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+          <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
+            <tr>
+              <td  valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
                     <td class="h3" align="left" bgcolor="#DEEAF3" valign="top" style="letter-spacing: 0.56px;-webkit-text-size-adjust: none;color: #263645;font-family: Futura, Trebuchet MS, Arial, sans-serif;font-size: 14px;line-height: 24px;padding: 6px 0 6px 0;text-align: center;font-weight: normal;text-decoration: none;width: 100%;text-transform: none;">Choose either Shave Gel (light, instant) or Shave Cream (rich, luxurious). Both soften and cushion your face. This is also important.</td>
@@ -878,8 +879,8 @@
       <tr>
         <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%;padding: 0 0 10px 0">
           <!-- Single Column  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
+          <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
+            <tr>
               <td valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <!-- Full width image -->
@@ -893,9 +894,9 @@
           </table>
           <!-- /Single Column  -->
           <!-- Single Column  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
+          <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
             <tr class="mod-1col">
-              <td class="container-pad" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+              <td  valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
                     <td class="h3" align="left" bgcolor="#DEEAF3" valign="top" style="letter-spacing: 0.56px; -webkit-text-size-adjust: none;color: #263645;font-family: Futura, Trebuchet MS, Arial, sans-serif;font-size: 14px;line-height: 24px;padding: 6px 0 6px 0;text-align: center;font-weight: normal;text-decoration: none;width: 100%;text-transform: none;">Your newfound softness will be invisible to the naked eye. Do not let this deter you for what comes next: The final step. Now up to 10x more enjoyable.</td>
@@ -915,9 +916,9 @@
       <tr>
         <td width="100%" valign="top" bgcolor="#ffffff" style="width:100%;padding: 50px 0 30px 0">
           <!-- Single Column  -->
-          <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px;">
-            <tr class="mod-1col">
-              <td class="container-pad" valign="top" bgcolor="#ffffff" align="center" style="background-color: #ffffff;padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+          <table class="mod-1col container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px;">
+            <tr>
+              <td valign="top" bgcolor="#ffffff" align="center" style="background-color: #ffffff;padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <!-- Image width image -->
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
