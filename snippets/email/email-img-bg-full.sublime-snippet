@@ -3,6 +3,12 @@
 <!-- 
     ========================== NOTES ==========================
 
+    Variables
+    =========
+	${1:containerWidth}
+	${2:bgImageHeight}
+	${3:textContainerWidth}
+
     ie-target - IE/Outlook 2000-2003 FIX
 	==================================
 	Adding an alt conditinal body tag with class="ie-target" means you can target IE using normal css with prefix of .ie-target  
@@ -18,6 +24,26 @@
 	VML - 2007+ FIX
     =============
 	Fix for OL 2007+ will display retina bg image but it does not fit to / cover the width & height of the container but spills over. Low res version used instead which fits. 
+
+	fill=”true”
+	===========
+	 tells the VML image to fill the entirety of the shape 
+
+	stroke=”false”
+	==============
+	stroke is used to define if a line or border is in place. 
+	In the case of a background image, it isn’t, so this should be set to stroke=”false”.
+
+	<v:fill  opacity="0%" color="#000000" 
+	=====================================
+	you can use the VML v:fill to set the color and opacity of the rectangle (v:rect) and background image (v:image).
+	This color needs to be the same as the bgcolor and background: color; to ensure uniformity across all email clients.
+
+	<v:textbox inset="0,0,0,0">
+	===========================
+	Lastly, you can define the v:textbox positioning to show you’ll be layering additional content over the above rectangle (v:rect) and image (v:image). In this example, we defined the position starting from the top left at 0,0,0,0.
+
+
 
 	Inline background-image - GANGA FIX
 	=================================
@@ -36,6 +62,8 @@
 	.bg { background-image: url('bg_retina.jpg') !important; } MAIL.RU FIX
 	======================================================================
 	This may need to be wrapped in media query if you want the bg to appear (not fallback) in mail.ru though this does slow down the load of the bg image in mobile 
+
+
 
 	Further Reading
 	===============
