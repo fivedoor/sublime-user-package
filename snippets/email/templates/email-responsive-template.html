@@ -192,20 +192,22 @@
   | MODULE CSS
   |-------------------------------------------------------------------------- 
   */
-  /* BG Mod */ 
-  .bg { background-image: url('http://res.cloudinary.com/dagb1l62t/image/upload/v1480276071/litmus/bg.jpg') !important; }
-  .ie-target .bg { background-image: none !important; background: url('https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/litmus_bg_lo.png?alt=media&token=7bc4bc5a-d65b-4b68-a659-414136262654') !important; }
-  .ie-target .width-500 { width: 500px !important; }
-  .bg-text-container { padding: 140px 20px !important; }
 
-  /* Responsive */
+  /** Responsive */
+  /** 3COL / 2COL(ImageText/ImageText) / 2COL(Image/Text) */
   .ie-target .width-100percent-OL,
-  .mso-target .width-100percent-OL { width: 100% !important; } /* 3COL / 2COL(ImageText/ImageText) / 2COL(Image/Text) */
-  .ie-target .width-248,
-  .mso-target .width-248 { width: 248px !important; }  /* 2COL Banner */
-  /* Cellpad */
-  .ie-target .container-td,
-  .mso-target .container-td  { padding-left: 26px !important; padding-right: 26px !important; } /* Px Pad for stability */
+  .mso-target .width-100percent-OL { width: 100% !important; } 
+  /** 2COL Banner */
+  /** Fix OL container to work with conditonal code that was added */
+  .ie-target #width-248,
+  .mso-target #width-248 { width: 248px !important; }  
+  /** Cellpad */
+  .ie-target .container__td,
+  .mso-target .container__td  { padding-left: 26px !important; padding-right: 26px !important; } /** Px Pad for stability */
+  /** Overide Cellpad for full width image */
+  .ie-target .mod-1col-img .container__td,
+  .mso-target .mod-1col-img .container__td{ padding-left: 0 !important; padding-right: 0 !important; }
+
 </style>
 
 <style type="text/css">
@@ -240,7 +242,7 @@
       font-weight: bold !important;
       font-size: 14px !important;
       border-top: 14px solid #263645 !important; 
-      border-bottom: 10px solid #263645 !important;      /*  Fix button padding IOS  */ 
+      border-bottom: 10px solid #263645 !important;   /**  Fix button padding IOS  */ 
     } 
   }
 </style>
@@ -272,15 +274,15 @@
  @media only screen and (max-width: 595px)  {
   .nomob { display: none !important; }
   .showmob { max-height: none !important; font-size: 12px !important; display: block !important; }
+  /*  .center td { text-align: center!important;}     2COL(Text/Text) / 2COL(ImageText/ImageText) / 2COL(Image/Text) */
   .container { width:100% !important; padding:0;}
-  .center td { text-align: center!important;} /* 2COL(Text/Text) / 2COL(ImageText/ImageText) / 2COL(Image/Text) */
   .width-100percent, 
   .width-100percent-OL { width: 100% !important;}
   .max-width-none { max-width: none !important; }
-  .container-td {}
+  .container__td {}
   
-   /* Harrys */ 
-  .mod-1col { padding-top: 30px  !important;}
+   /** Harrys */ 
+  .mod-1col-hero { padding-top: 30px  !important;}
   .h3 {text-align: left !important;}
   u + .body .wrapper { width:100% !important; width:100vw !important;}
 }
@@ -328,8 +330,8 @@
 
         <!-- Single Column  -->
         <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px;">
-          <tr class="mod-1col">
-            <td class="container-td" valign="top" bgcolor="#f7f7f7" align="center" style="background-color: #f7f7f7;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+          <tr class="mod-1col-hero">
+            <td class="container__td" valign="top" bgcolor="#f7f7f7" align="center" style="background-color: #f7f7f7;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
               <!-- Full width image -->
               <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                 <tr>
@@ -378,7 +380,7 @@
        <!-- 3 Column  -->
       <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px;">
         <tr class="mod-3col">
-          <td class="container-td" style="padding-top: 5px;padding-bottom: 7px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
+          <td class="container__td" style="padding-top: 5px;padding-bottom: 7px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
            <!--[if false]> <div style:"display:none;"> <![endif]-->
             <!--[if (gte mso 9) | (IE)]>
               <table align="center" border="0" cellpadding="0" cellspacing="0" width="528" bgcolor="#ffffff" style="width:528px;">
@@ -498,7 +500,7 @@
        <!--  2 Column (Text/Text) -->
         <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width: 580px">
           <tr class="mod-2col-txt center" align="left" valign="top">
-            <td class="container-td" style="padding-top: 7px;padding-bottom: 32px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+            <td class="container__td" style="padding-top: 7px;padding-bottom: 32px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                               
               <!-- Container  -->
               <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="width: 100%">
@@ -570,7 +572,7 @@
              <!-- 2 Column (Image Text/Image Text)  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px">
             <tr class="mod-2col center">
-              <td class="container-td" style="padding-top: 10px;padding-bottom: 10px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff" valign="top">
+              <td class="container__td" style="padding-top: 10px;padding-bottom: 10px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff" valign="top">
                  <!--[if false]> <div style:"display:none;"> <![endif]-->
                 <!--[if (gte mso 9) | (IE)]>
                   <table 
@@ -697,10 +699,10 @@
           <!-- 2 Column (Image/Text) -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px">
             <tr>
-              <td class="container-td" colspan="2" align="left" valign="top" style="padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
+              <td class="container__td" colspan="2" align="left" valign="top" style="padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
             </tr> 
             <tr class="mod-2col-banner center">
-              <td class="container-td" style="padding-top: 0;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
+              <td class="container__td" style="padding-top: 0;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;" bgcolor="#ffffff">
                 
 
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#e03030" style="width:100%">
@@ -709,7 +711,7 @@
 
                       <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#e03030" style="width:100%">
                         <tr>
-                          <td class="width-248" align="left" valign="top" >
+                          <td id="width-248" align="left" valign="top" >
 
                             <table class="width-100percent-OL" width="248" border="0" cellpadding="0" cellspacing="0" align="left" style="width:47.916666666667%">
                               <tr>
@@ -792,7 +794,7 @@
               </td>
             </tr>
             <tr>
-              <td class="container-td" colspan="2" align="left" valign="top" style="padding-top: 0;padding-bottom: 26px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
+              <td class="container__td" colspan="2" align="left" valign="top" style="padding-top: 0;padding-bottom: 26px;padding-left: 4.48275862069%;padding-right: 4.48275862069%;margin:0;line-height:1px;font-size:0;width:100%" width="100%"><img src="https://firebasestorage.googleapis.com/v0/b/ngdataformdemo.appspot.com/o/divider-red-white.png?alt=media&amp;token=6b99b190-9320-4873-91d2-7fe191ca2fce" alt="" width="528" height="auto" style="border: 0; display: block; height: auto; line-height: 100%; max-width: 528px; outline: none; text-decoration: none; width: 100%;"></td>
             </tr> 
 
           </table>
@@ -808,8 +810,8 @@
         <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%;padding: 0 0 10px 0">
           <!-- Single Column  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
-              <td class="container-td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
+            <tr class="mod-1col-img">
+              <td class="container__td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <!-- Full width image -->
                   <tr>
@@ -823,8 +825,8 @@
           <!-- /Single Column  -->
           <!-- Single Column  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
-              <td class="container-td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+            <tr class="mod-1col-txt">
+              <td class="container__td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
                     <td class="h3" align="left" bgcolor="#DEEAF3" valign="top" style="letter-spacing: 0.56px;-webkit-text-size-adjust: none;color: #263645;font-family: Futura, Trebuchet MS, Arial, sans-serif;font-size: 14px;line-height: 24px;padding: 6px 0 6px 0;text-align: center;font-weight: normal;text-decoration: none;width: 100%;text-transform: none;">Gather your shaving supplies. Wash your face with a pebble-size dollop of exfoliating Face&nbsp;Wash to soften stubble for an even more comfortable shave. This is important.</td>
@@ -844,8 +846,8 @@
         <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%;padding: 0 0 10px 0">
           <!-- Single Column  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
-            <tr class="mod-1col" >
-              <td class="container-td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
+            <tr class="mod-1col-img" >
+              <td class="container__td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <!-- Full width image -->
                   <tr>
@@ -859,8 +861,8 @@
           <!-- /Single Column  -->
           <!-- Single Column  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
-            <tr class="mod-1col" >
-              <td class="container-td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+            <tr class="mod-1col-txt" >
+              <td class="container__td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
                     <td class="h3" align="left" bgcolor="#DEEAF3" valign="top" style="letter-spacing: 0.56px;-webkit-text-size-adjust: none;color: #263645;font-family: Futura, Trebuchet MS, Arial, sans-serif;font-size: 14px;line-height: 24px;padding: 6px 0 6px 0;text-align: center;font-weight: normal;text-decoration: none;width: 100%;text-transform: none;">Choose either Shave Gel (light, instant) or Shave Cream (rich, luxurious). Both soften and cushion your face. This is also important.</td>
@@ -880,8 +882,8 @@
         <td width="100%" valign="top" bgcolor="#f7f7f7" style="width:100%;padding: 0 0 10px 0">
           <!-- Single Column  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
-              <td class="container-td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
+            <tr class="mod-1col-img">
+              <td class="container__td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding: 0 0 0 0;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <!-- Full width image -->
                   <tr>
@@ -895,8 +897,8 @@
           <!-- /Single Column  -->
           <!-- Single Column  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#DEEAF3" style="margin:0 auto;width:580px">
-            <tr class="mod-1col">
-              <td class="container-td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+            <tr class="mod-1col-txt">
+              <td class="container__td" valign="top" bgcolor="#DEEAF3" align="center" style="background-color: #DEEAF3;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
                     <td class="h3" align="left" bgcolor="#DEEAF3" valign="top" style="letter-spacing: 0.56px; -webkit-text-size-adjust: none;color: #263645;font-family: Futura, Trebuchet MS, Arial, sans-serif;font-size: 14px;line-height: 24px;padding: 6px 0 6px 0;text-align: center;font-weight: normal;text-decoration: none;width: 100%;text-transform: none;">Your newfound softness will be invisible to the naked eye. Do not let this deter you for what comes next: The final step. Now up to 10x more enjoyable.</td>
@@ -918,7 +920,7 @@
           <!-- Single Column  -->
           <table class="container" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin:0 auto;width:580px;">
             <tr class="mod-1col">
-              <td class="container-td" valign="top" bgcolor="#ffffff" align="center" style="background-color: #ffffff;padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
+              <td class="container__td" valign="top" bgcolor="#ffffff" align="center" style="background-color: #ffffff;padding-top: 26px;padding-bottom: 0;padding-left: 4.48275862069%;padding-right: 4.48275862069%;">
                 <!-- Image width image -->
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100%">
                   <tr>
