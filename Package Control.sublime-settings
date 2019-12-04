@@ -17,6 +17,7 @@
 		"DocBlockr",
 		"Emmet",
 		"Gist",
+		"Git",
 		"HTML Boilerplate",
 		"HTML5",
 		"JSHint",
@@ -29,6 +30,8 @@
 		"SublimeLinter-html-tidy",
 		"SublimeLinter-jshint",
 		"SublimeLinter-tslint",
+		"Sync Settings",
+		"Terminus",
 		"TypeScript"
 	]
 }
