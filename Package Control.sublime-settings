@@ -6,11 +6,13 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
+		"AmpScript Highlighter",
 		"Angular CLI",
 		"Autoprefixer",
 		"Bootstrap 3 Autocomplete",
 		"Bootstrap 3 Snippets",
 		"Color Highlight",
+		"CSS Format",
 		"CSS3",
 		"CSScomb",
 		"CSSOrder",
@@ -21,6 +23,9 @@
 		"HTML Boilerplate",
 		"HTML5",
 		"JSHint",
+		"JSON Reindent",
+		"JSONLint",
+		"Liquid",
 		"Ngx HTML",
 		"Package Control",
 		"PackageResourceViewer",

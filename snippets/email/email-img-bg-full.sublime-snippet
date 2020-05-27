@@ -21,7 +21,10 @@
 
     ie-target - IE/Outlook 2000-2003 FIX
 	==================================
-	Adding an alt conditinal body tag with class="ie-target" means you can target IE using normal css with prefix of .ie-target  
+	Adding an alt conditinal body tag with class="ie-target" means you can target IE using normal css with prefix of .ie-target 
+	 
+	Including  <meta http-equiv="X-UA-Compatible" content="IE=edge"> would make it possible to target with high res version but when wrapping the tag with any conditional tag even those targeted to say read if NOT MSO or read if IE - OL acts as if the tag is not there. Since need to wrap meta tag for best results in other clients (see shell notes) - have to live without CSS/high res support in 2000-3
+
 
     .ie-target .bg 
     ==============
@@ -54,6 +57,11 @@
 	Lastly, you can define the v:textbox positioning to show you’ll be layering additional content over the above rectangle (v:rect) and image (v:image). In this example, we defined the position starting from the top left at 0,0,0,0.
 
 
+	Windows 10 Issues
+	===========================
+	Windows 10 also has similar quirks, but needs even more information than earlier Outlook versions, mainly the width and height being in point (pt) format instead of pixels. To calculate image size using points (pt) multiply the pixel value by 0.75. (e.g. 640 pixels x 0.75 = 480pt.)
+
+
 
 	Inline background-image - GANGA FIX
 	=================================
@@ -77,6 +85,7 @@
 
 	Further Reading
 	===============
+	https://elasticemail.com/blog/transactional_email/email-rendering-issues-in-outlook-and-hacks-to-save-the-day
 	https://www.emailonacid.com/blog/article/email-development/html-background-images-in-email/
 	http://www.emaildesignreview.com/html-email-coding/html-bulletproof-background-images-in-email-3850/
 	https://litmus.com/blog/the-ultimate-guide-to-background-images-in-email
